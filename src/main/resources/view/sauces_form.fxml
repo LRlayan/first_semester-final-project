@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="649.0" prefWidth="656.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.SaucesFormController">
+   <children>
+      <Pane layoutX="16.0" layoutY="455.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="2.0" layoutY="-1.0">
+               <image>
+                  <Image url="@../image/tomato.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="16.0" layoutY="361.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="94.0" fitWidth="94.0" layoutX="1.0" layoutY="-1.0">
+               <image>
+                  <Image url="@../image/BBQSauce.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="16.0" layoutY="267.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="59.0" fitWidth="80.0" layoutX="11.0" layoutY="16.0">
+               <image>
+                  <Image url="@../image/sweetSourSauce.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="16.0" layoutY="173.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="65.0" fitWidth="88.0" layoutX="12.0" layoutY="11.0">
+               <image>
+                  <Image url="@../image/Mayonnaise.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="16.0" layoutY="79.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="125.0" fitWidth="125.0" layoutX="-5.0" layoutY="-19.0">
+               <image>
+                  <Image url="@../image/ketchup.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="117.0" layoutY="11.0" text="Ketchup">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="105.0" text="Mayonnaise">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="199.0" text="Sweet &amp; Sour Sauce">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="293.0" text="BBQ Sauce">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="387.0" text="Totamto Sauce">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="44.0" text="Rs.150.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="138.0" text="Rs.130.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="232.0" text="Rs.90.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="327.0" text="Rs.85.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="117.0" layoutY="418.0" text="Rs.50.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXButton prefHeight="88.0" prefWidth="324.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" text="." textFill="#ffae00" />
+            <JFXButton layoutY="94.0" prefHeight="88.0" prefWidth="324.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" text="." textFill="#ffae00" />
+            <JFXButton layoutY="188.0" prefHeight="88.0" prefWidth="324.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" text="." textFill="#ffae00" />
+            <JFXButton layoutY="282.0" prefHeight="88.0" prefWidth="324.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" text="." textFill="#ffae00" />
+            <JFXButton layoutY="376.0" prefHeight="88.0" prefWidth="324.0" style="-fx-border-radius: 10; -fx-background-radius: 10;" text="." textFill="#ffae00" />
+         </children>
+      </Pane>
+      <Label layoutX="129.0" layoutY="18.0" text="Sauces">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

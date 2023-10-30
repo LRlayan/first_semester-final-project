@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="620.0" prefWidth="960.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.AdminLoginFormController">
+   <children>
+      <ImageView fitHeight="531.0" fitWidth="961.0" layoutY="89.0">
+         <image>
+            <Image url="@../image/loginBackground.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="267.0" layoutY="67.0" opacity="0.48" prefHeight="487.0" prefWidth="419.0" style="-fx-background-radius: 30; -fx-background-color: #000000;" />
+      <ImageView fitHeight="344.0" fitWidth="655.0" layoutX="306.0" layoutY="-1.0">
+         <image>
+            <Image url="@../image/loginPageIconRemove.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="275.0" layoutY="75.0" prefHeight="471.0" prefWidth="402.0" style="-fx-background-radius: 25; -fx-background-color: #FFFFFF;">
+         <children>
+            <Label layoutX="87.0" layoutY="136.0" text="Username">
+               <font>
+                  <Font name="Gill Sans MT" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="86.0" layoutY="227.0" prefHeight="21.0" prefWidth="93.0" text="Password">
+               <font>
+                  <Font name="Gill Sans MT" size="19.0" />
+               </font>
+            </Label>
+            <TextField layoutX="87.0" layoutY="164.0" prefHeight="43.0" prefWidth="231.0" promptText="username" />
+            <TextField layoutX="86.0" layoutY="256.0" prefHeight="43.0" prefWidth="231.0" promptText="password" />
+            <JFXButton layoutX="157.0" layoutY="367.0" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: FF8328; -fx-background-radius: 10;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="159.0" layoutY="326.0" prefHeight="23.0" prefWidth="93.0" text="forget password?">
+               <font>
+                  <Font name="Gill Sans MT" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+      <Label layoutX="434.0" layoutY="115.0" prefHeight="40.0" prefWidth="93.0" text="Login">
+         <font>
+            <Font name="Calibri Bold" size="34.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="41.0" fitWidth="50.0" layoutX="812.0" layoutY="58.0">
+         <image>
+            <Image url="@../image/BurgerCartoonIMG.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="797.0" layoutY="110.0" text="Hot">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="831.0" layoutY="110.0" text="Burger">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="343.0" fitWidth="325.0" layoutX="31.0" layoutY="274.0">
+         <image>
+            <Image url="@../image/loginBurger.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

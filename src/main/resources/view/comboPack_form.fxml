@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="649.0" prefWidth="656.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ComboPackFormController">
+   <children>
+      <Pane layoutX="20.0" layoutY="455.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="99.0" layoutX="3.0" layoutY="14.0">
+               <image>
+                  <Image url="@../image/ClubHouseCrispyChickenMeal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="361.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="96.0" layoutX="7.0" layoutY="3.0">
+               <image>
+                  <Image url="@../image/CrunchyChickenMeal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="268.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="99.0" layoutX="6.0" layoutY="1.0">
+               <image>
+                  <Image url="@../image/crispy-wrap-meal-new.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="175.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="99.0" layoutX="9.0" layoutY="-1.0">
+               <image>
+                  <Image url="@../image/chickenroyale-new-meal.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane layoutX="20.0" layoutY="82.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <ImageView fitHeight="82.0" fitWidth="99.0" layoutX="9.0" layoutY="4.0">
+               <image>
+                  <Image url="@../image/CrunchyChickenMeal.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="121.0" layoutY="3.0" prefHeight="37.0" prefWidth="189.0" text="Chicken Burger Meal">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="99.0" prefHeight="37.0" prefWidth="189.0" text="Chicken Royal Meal">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="190.0" prefHeight="37.0" prefWidth="201.0" text="Crispy Chicken Wrap Meal">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="284.0" prefHeight="37.0" prefWidth="201.0" text="Crunchy ChickenMeal">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="377.0" prefHeight="37.0" prefWidth="201.0" text="Crunchy ChickenMeal">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="39.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="132.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 1300.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="225.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 880.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="316.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 1380.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="121.0" layoutY="409.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 1150.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="91.0" layoutY="28.0" text="Combo Pack">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Pane layoutX="366.0" layoutY="82.0" prefHeight="461.0" prefWidth="273.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <Line endX="119.66668701171875" layoutX="136.0" layoutY="60.0" startX="-116.33334350585938" stroke="#dddddd" />
+            <Line endX="119.66668701171875" layoutX="136.0" layoutY="117.0" startX="-116.33334350585938" stroke="#dddddd" />
+            <Line endX="119.66668701171875" layoutX="136.0" layoutY="176.0" startX="-116.33334350585938" stroke="#dddddd" />
+            <Line endX="119.66668701171875" layoutX="136.0" layoutY="236.0" startX="-116.33334350585938" stroke="#dddddd" />
+            <Line endX="119.66668701171875" layoutX="136.0" layoutY="294.0" startX="-116.33334350585938" stroke="#dddddd" />
+            <Line endX="119.66668701171875" layoutX="136.0" layoutY="354.0" startX="-116.33334350585938" stroke="#dddddd" />
+            <ImageView fitHeight="59.0" fitWidth="60.0" layoutX="38.0" layoutY="1.0">
+               <image>
+                  <Image url="@../image/Coca.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="47.0" fitWidth="47.0" layoutX="44.0" layoutY="65.0">
+               <image>
+                  <Image url="@../image/Fanta.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="48.0" fitWidth="31.0" layoutX="51.0" layoutY="122.0">
+               <image>
+                  <Image url="@../image/sprite.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="54.0" fitWidth="35.0" layoutX="49.0" layoutY="179.0">
+               <image>
+                  <Image url="@../image/Redbull.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="50.0" fitWidth="39.0" layoutX="51.0" layoutY="240.0">
+               <image>
+                  <Image url="@../image/OrangeJuice.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="55.0" fitWidth="53.0" layoutX="49.0" layoutY="297.0">
+               <image>
+                  <Image url="@../image/StrawberyJuice.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="98.0" layoutY="-1.0" prefHeight="37.0" prefWidth="117.0" text="Coca-cola">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="177.0" prefHeight="37.0" prefWidth="117.0" text="Red Bull 300ml">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="118.0" prefHeight="37.0" prefWidth="117.0" text="Sprite 300ml">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="59.0" prefHeight="37.0" prefWidth="117.0" text="Fanta 300ml">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="237.0" prefHeight="37.0" prefWidth="117.0" text="Orange Juice">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="295.0" prefHeight="37.0" prefWidth="129.0" text="Strawberry Juice">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="85.0" layoutY="392.0" prefHeight="31.0" prefWidth="106.0" style="-fx-background-color: #FF8328; -fx-background-radius: 10;" text="Confirm" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="98.0" layoutY="25.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="83.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="142.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="98.0" layoutY="202.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="99.0" layoutY="259.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="99.0" layoutY="319.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label layoutX="366.0" layoutY="36.0" prefHeight="46.0" prefWidth="117.0" text="Change Drinks">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
