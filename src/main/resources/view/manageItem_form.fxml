@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageItemFormController">
+   <children>
+      <DatePicker layoutX="66.0" layoutY="119.0" prefHeight="33.0" prefWidth="207.0" promptText="select date" style="-fx-background-color: FFFFFF;" />
+      <JFXComboBox focusColor="#1b3990" layoutX="304.0" layoutY="120.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="207.0" promptText="order type" unFocusColor="#ff9000">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXComboBox>
+      <JFXButton buttonType="RAISED" layoutX="296.0" layoutY="54.0" prefHeight="40.0" prefWidth="114.0" style="-fx-background-color: FF7A00; -fx-background-radius: 40;" text="Search" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="11.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField layoutX="65.0" layoutY="54.0" prefHeight="40.0" prefWidth="265.0" promptText="      search item" style="-fx-background-radius: 40;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TextField>
+      <JFXButton buttonType="RAISED" layoutX="748.0" layoutY="55.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="Item " textFill="WHITE">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TableView layoutX="66.0" layoutY="173.0" prefHeight="355.0" prefWidth="840.0">
+        <columns>
+          <TableColumn prefWidth="92.33332824707031" text="ItemCode" />
+          <TableColumn prefWidth="188.6666717529297" text="Name" />
+            <TableColumn prefWidth="107.33332824707031" text="Type" />
+            <TableColumn prefWidth="123.33334350585938" text="Date" />
+            <TableColumn prefWidth="106.33334350585938" text="Discount" />
+            <TableColumn prefWidth="113.66668701171875" text="Sub Total" />
+            <TableColumn prefWidth="109.0" text="Total" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

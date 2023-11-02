@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.AccountInfoFormController">
+   <children>
+      <ImageView fitHeight="134.0" fitWidth="134.0" layoutX="100.0" layoutY="25.0">
+         <image>
+            <Image url="@../image/adminIcon.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="100.0" layoutY="373.0" prefHeight="134.0" prefWidth="769.0" style="-fx-border-color: #000000;" />
+      <Pane layoutX="100.0" layoutY="200.0" prefHeight="134.0" prefWidth="769.0" style="-fx-border-color: #000000;">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="61.0" layoutY="-19.0" stroke="WHITE" strokeType="INSIDE" width="135.0" />
+            <Label layoutX="80.0" layoutY="-15.0" text="Username">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="61.0" layoutY="154.0" stroke="WHITE" strokeType="INSIDE" width="135.0" />
+            <Label layoutX="80.0" layoutY="159.0" text="Password">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="14.0" text="username">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="315.0" layoutY="14.0" text="new username">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="562.0" layoutY="14.0" text="confirm username">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="65.0" layoutY="43.0" prefHeight="30.0" prefWidth="170.0" />
+            <TextField layoutX="315.0" layoutY="43.0" prefHeight="30.0" prefWidth="170.0" />
+            <TextField layoutX="565.0" layoutY="43.0" prefHeight="30.0" prefWidth="170.0" />
+            <Label layoutX="65.0" layoutY="191.0" text="password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="315.0" layoutY="191.0" text="new password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="562.0" layoutY="191.0" text="confirm password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField layoutX="65.0" layoutY="220.0" prefHeight="30.0" prefWidth="170.0" />
+            <TextField layoutX="315.0" layoutY="220.0" prefHeight="30.0" prefWidth="170.0" />
+            <TextField layoutX="565.0" layoutY="220.0" prefHeight="30.0" prefWidth="170.0" />
+            <JFXButton buttonType="RAISED" layoutX="634.0" layoutY="82.0" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="change" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="634.0" layoutY="258.0" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="change" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Label layoutX="269.0" layoutY="69.0" text="WD . Perera" textFill="#a4a4a4">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="97.0" text="Admin">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="41.0" text="HOT BURGERS">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="590.0" layoutY="41.0" prefHeight="31.0" prefWidth="278.0" text="hotburger@gmail.com">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="590.0" layoutY="62.0" prefHeight="31.0" prefWidth="278.0" text="+94 76 5937705">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
