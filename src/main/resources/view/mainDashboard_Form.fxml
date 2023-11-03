@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="730.0" prefWidth="1360.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.DashboardFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7a00" height="72.0" layoutX="-11.0" stroke="#ff7a00" strokeType="INSIDE" width="1385.0" />
+      <Label layoutX="568.0" layoutY="13.0" text="Admin Panel">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="-24.0" layoutY="72.0" prefHeight="658.0" prefWidth="374.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 40; -fx-border-color: #ff7a00; -fx-border-radius: 30; -fx-border-width: 4;">
+         <children>
+            <JFXButton fx:id="btnAccount" layoutX="8.0" layoutY="383.0" onAction="#clickOnAccountInfo" prefHeight="72.0" prefWidth="358.0" style="-fx-border-radius: 20;" styleClass="navButtons" stylesheets="@../styleSheet.css" text="." />
+            <JFXButton fx:id="btnOrder" layoutX="8.0" layoutY="306.0" onAction="#clickOnOrder" prefHeight="72.0" prefWidth="358.0" style="-fx-border-radius: 20;" styleClass="navButtons" stylesheets="@../styleSheet.css" text="." />
+            <JFXButton fx:id="btnItem" layoutX="2.0" layoutY="229.0" onAction="#clickOnItem" prefHeight="72.0" prefWidth="364.0" style="-fx-border-radius: 20;" styleClass="navButtons" stylesheets="@../styleSheet.css" text="." />
+            <Label layoutX="103.0" layoutY="397.0" text="Account info">
+               <font>
+                  <Font name="Bodoni MT Bold" size="33.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <JFXButton fx:id="btnDashboard" layoutX="8.0" layoutY="152.0" onAction="#clickDashboard" prefHeight="72.0" prefWidth="358.0" style="-fx-border-radius: 20;" styleClass="navButtons" stylesheets="@../styleSheet.css" text="." />
+            <Label layoutX="117.0" layoutY="25.0" text="Hot Burger" textFill="#ebcc00">
+               <font>
+                  <Font name="Bodoni MT Bold" size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="103.0" layoutY="166.0" styleClass="lbl" stylesheets="@../styleSheet.css" text="Dashboard">
+               <font>
+                  <Font name="Bodoni MT Bold" size="33.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="103.0" layoutY="244.0" text="Manage Item">
+               <font>
+                  <Font name="Bodoni MT Bold" size="33.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label layoutX="103.0" layoutY="323.0" text="Manage Order">
+               <font>
+                  <Font name="Bodoni MT Bold" size="33.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="120.0" layoutY="539.0" prefHeight="46.0" prefWidth="152.0" style="-fx-background-color: #ff7a00; -fx-background-radius: 15;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="mainDashboardAnchorpane" layoutX="379.0" layoutY="95.0" prefHeight="612.0" prefWidth="964.0" />
+   </children>
+</AnchorPane>
