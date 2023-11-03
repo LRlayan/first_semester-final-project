@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="612.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.DashboardFormController">
+   <children>
+      <Pane layoutX="644.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" />
+      <Pane layoutX="357.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" />
+      <Pane layoutX="67.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" />
+      <Label layoutX="66.0" layoutY="38.0" text="Welcome">
+         <font>
+            <Font name="Calibri Bold" size="43.0" />
+         </font>
+      </Label>
+      <Pane layoutX="67.0" layoutY="125.0" prefHeight="162.0" prefWidth="834.0" style="-fx-background-color: FFD4AD; -fx-background-radius: 20;">
+         <children>
+            <JFXComboBox layoutX="488.0" layoutY="88.0" prefHeight="45.0" prefWidth="288.0" style="-fx-background-color: #FFFFFF;">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXComboBox>
+         </children>
+      </Pane>
+      <Label layoutX="90.0" layoutY="145.0" text="Current Monthly Details " textFill="#ff7a00">
+         <font>
+            <Font name="Calibri Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="100.0" layoutY="225.0" text="Select filter view data">
+         <font>
+            <Font name="Calibri Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="135.0" layoutY="442.0" text="total sales" textFill="#757272">
+         <font>
+            <Font name="Calibri Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="374.0" layoutY="442.0" text="total sales amount" textFill="#757272">
+         <font>
+            <Font name="Calibri Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label layoutX="741.0" layoutY="442.0" text="profit" textFill="#757272">
+         <font>
+            <Font name="Calibri Bold" size="28.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
