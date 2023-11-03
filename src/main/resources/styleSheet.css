@@ -1,0 +1,12 @@
+.navButtons{
+    -fx-background-color: transparent;
+    -fx-border-color: #ff7a00;
+    -fx-color: black;
+    -fx-opacity: 100%;
+}
+
+.navButtons:hover{
+    -fx-background-color: #ff7a00;
+    color:white;
+    -fx-opacity: 45%;
+}
