@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.CustomerDetailsFormController">
+   <children>
+      <Label layoutX="71.0" layoutY="59.0" text="Customer Delivery Information">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TableView fx:id="customerTable" layoutX="41.0" layoutY="132.0" prefHeight="387.0" prefWidth="882.0">
+        <columns>
+          <TableColumn fx:id="customerId" prefWidth="57.66667175292969" text="id" />
+          <TableColumn fx:id="firstName" prefWidth="112.33332824707031" text="First Name" />
+            <TableColumn fx:id="lastName" prefWidth="121.66668701171875" text="Last Name" />
+            <TableColumn fx:id="addressLine01" prefWidth="133.33331298828125" text="Address Line 01" />
+            <TableColumn fx:id="addressLine02" prefWidth="128.66668701171875" text="Address Line 02" />
+            <TableColumn fx:id="addressLine03" prefWidth="130.33331298828125" text="Address Line 03" />
+            <TableColumn fx:id="phone1" prefWidth="95.6666259765625" text="Phone 1" />
+            <TableColumn fx:id="phone2" prefWidth="102.66668701171875" text="Phone 2" />
+            <TableColumn fx:id="customerId1" prefWidth="57.66667175292969" text="id" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
