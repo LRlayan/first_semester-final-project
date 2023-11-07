@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="logoutVerifyAnchorpane" prefHeight="180.0" prefWidth="350.0" style="-fx-background-radius: 20; -fx-border-color: #a1a1a1; -fx-border-width: 3; -fx-border-radius: 20;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.LogoutYesNoFormController">
+   <children>
+      <Label layoutX="54.0" layoutY="30.0" text="Are you sure logout the system?">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="69.0" layoutY="107.0" onAction="#btnYesOnAction" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #a1a1a1;" text="Yes" />
+      <JFXButton buttonType="RAISED" layoutX="205.0" layoutY="107.0" onAction="#btnNoAction" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #a1a1a1;" text="No" />
+   </children>
+</AnchorPane>
