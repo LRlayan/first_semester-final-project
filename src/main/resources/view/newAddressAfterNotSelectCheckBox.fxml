@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="127.0" prefWidth="193.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.NewAddressAfterNotSelectCheckBoxController">
+   <children>
+      <TextArea layoutY="23.0" prefHeight="87.0" prefWidth="193.0" />
+      <Label layoutY="3.0" text="New Address" />
+   </children>
+</AnchorPane>
