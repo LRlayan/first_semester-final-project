@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="450.0" style="-fx-border-color: FF7A00; -fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.AddNewItemController">
+   <children>
+      <TextField fx:id="txtItemCode" layoutX="45.0" layoutY="141.0" prefHeight="34.0" prefWidth="169.0" promptText="item code" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtItemCategory" layoutX="239.0" layoutY="141.0" prefHeight="34.0" prefWidth="169.0" promptText="item category" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtItemName" layoutX="45.0" layoutY="223.0" prefHeight="34.0" prefWidth="363.0" promptText="item name" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtUnitPrice" layoutX="45.0" layoutY="301.0" prefHeight="34.0" prefWidth="169.0" promptText="unit price" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtUnitCost" layoutX="240.0" layoutY="301.0" prefHeight="34.0" prefWidth="169.0" promptText="unit cost" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <JFXButton fx:id="btnCreate" buttonType="RAISED" layoutX="169.0" layoutY="399.0" onAction="#createBtnOnAction" prefHeight="34.0" prefWidth="115.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="Create">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="45.0" layoutY="113.0" text="Item Code" />
+      <Label layoutX="240.0" layoutY="113.0" text="Item Category" />
+      <Label layoutX="47.0" layoutY="195.0" text="Item Name" />
+      <Label layoutX="47.0" layoutY="274.0" text="Unit Price" />
+      <Label layoutX="242.0" layoutY="274.0" text="Unit Cost" />
+      <Label layoutX="168.0" layoutY="42.0" text="Add New Item">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

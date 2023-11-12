@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class AppInitializer extends Application {
+
+   public static final String CURRENCY = "Rs";
     @Override
     public void start(Stage primaryStage) throws Exception {
-       Parent rootNode =  FXMLLoader.load(getClass().getResource("/view/comboPack_form.fxml"));
+       Parent rootNode =  FXMLLoader.load(getClass().getResource("/view/adminLogin_form.fxml"));
         Scene scene = new Scene(rootNode);
         primaryStage.setScene(scene);
         primaryStage.centerOnScreen();

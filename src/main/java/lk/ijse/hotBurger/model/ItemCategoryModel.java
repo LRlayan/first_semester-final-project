@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ItemCategoryModel {
 
-    public List<ItemCategoryDto> loadAllItemCategory() throws SQLException {
+    public static List<ItemCategoryDto> loadAllItemCategory() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "SELECT * FROM itemCategory";

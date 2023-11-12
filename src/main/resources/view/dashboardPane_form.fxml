@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="612.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.DashboardFormController">
+<AnchorPane prefHeight="612.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.DashboardPaneFormController">
    <children>
-      <Pane layoutX="644.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" />
-      <Pane layoutX="357.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" />
-      <Pane layoutX="67.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" />
+      <Pane layoutX="644.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <Pane layoutX="357.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <Pane layoutX="67.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css" />
       <Label layoutX="66.0" layoutY="38.0" text="Welcome">
          <font>
             <Font name="Calibri Bold" size="43.0" />
          </font>
       </Label>
-      <Pane layoutX="67.0" layoutY="125.0" prefHeight="162.0" prefWidth="834.0" style="-fx-background-color: FFD4AD; -fx-background-radius: 20;">
+      <Pane layoutX="67.0" layoutY="125.0" prefHeight="162.0" prefWidth="834.0" style="-fx-background-color: FFD4AD; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css">
          <children>
             <JFXComboBox layoutX="488.0" layoutY="88.0" prefHeight="45.0" prefWidth="288.0" style="-fx-background-color: #FFFFFF;">
                <cursor>

@@ -13,23 +13,35 @@ import java.util.List;
 public class ItemModel {
 
 
-    public List<ItemDto> loadAllCustomer() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM item";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-        List<ItemDto> itemList = new ArrayList<>();
-        ResultSet resultSet = preparedStatement.executeQuery();
-        while (resultSet.next()){
-            itemList.add(new ItemDto(
-                resultSet.getInt(1),
-                resultSet.getString(2),
-                resultSet.getString(3),
-                resultSet.getDouble(4),
-                resultSet.getDouble(5),
-                resultSet.getString(6)
-            ));
+    public static List<ItemDto> loadAllItem() {
+       ArrayList<ItemDto> itemDtos = new ArrayList<>();
+       try {
+           Connection connection = DbConnection.getInstance().getConnection();
+           PreparedStatement preparedStatement = connection.prepareStatement("SELECT  * FROM item");
+           ResultSet resultSet = preparedStatement.executeQuery();
+           while (resultSet.next()){
+               ItemDto itemDto = new ItemDto(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getDouble(4),resultSet.getDouble(5),resultSet.getString(6),resultSet.getString(7));
+               itemDtos.add(itemDto);
+           }
+       }catch (SQLException e){
+           e.printStackTrace();
+       }
+       return itemDtos;
+       }
+    public static List<ItemDto> loadAllItemCategoryVise(int catID) {
+        ArrayList<ItemDto> itemDtos = new ArrayList<>();
+        try {
+            Connection connection = DbConnection.getInstance().getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT  * FROM item WHERE categoryId = ?");
+            preparedStatement.setInt(1,catID);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                ItemDto itemDto = new ItemDto(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getDouble(4),resultSet.getDouble(5),resultSet.getString(6),resultSet.getString(7));
+                itemDtos.add(itemDto);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
         }
-        return itemList;
+        return itemDtos;
     }
 }

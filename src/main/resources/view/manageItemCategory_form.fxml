@@ -2,47 +2,25 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="612.0" prefWidth="964.0" style="-fx-background-radius: 30; -fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageItemFormController">
+<AnchorPane fx:id="mainAnchorpane" prefHeight="612.0" prefWidth="964.0" style="-fx-background-radius: 30; -fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageItemCategoryFormController">
    <children>
-      <AnchorPane layoutY="54.0" prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" />
+      <JFXButton fx:id="itemSelection" layoutX="238.0" layoutY="9.0" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: #ff7a00; -fx-background-radius: 20;" text="." textFill="#ff7a00" />
+      <JFXButton fx:id="categorySelection" layoutX="33.0" layoutY="9.0" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: #ff7a00; -fx-background-radius: 20;" text="." textFill="#ff7a00" />
+      <Label fx:id="lblItemCategory" layoutX="55.0" layoutY="13.0" onMouseClicked="#onClickItemCategory" text="Item Category">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblItem" layoutX="297.0" layoutY="13.0" onMouseClicked="#onClickItemLabel" text="Item ">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
       <Line endX="640.3333129882812" layoutX="293.0" layoutY="49.0" startX="-259.6666564941406" stroke="#d0d0d0" />
-      <Label layoutX="63.0" layoutY="20.0" text="Item Category" textFill="#bcbcbc">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="273.0" layoutY="19.0" text="Item " textFill="#bcbcbc">
-         <font>
-            <Font name="System Bold" size="17.0" />
-         </font>
-      </Label>
-      <JFXButton buttonType="RAISED" layoutX="296.0" layoutY="109.0" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 40; -fx-background-color: FF7A00;" text="Search" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="11.0" />
-         </font>
-      </JFXButton>
-      <TextField layoutX="65.0" layoutY="109.0" prefHeight="40.0" prefWidth="265.0" promptText="   search category" style="-fx-background-radius: 40;">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
-      <JFXButton buttonType="RAISED" layoutX="738.0" layoutY="109.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="Create Category" textFill="WHITE">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </JFXButton>
-      <TableView layoutX="156.0" layoutY="215.0" prefHeight="289.0" prefWidth="650.0" style="-fx-background-color: D9D9D9;">
-        <columns>
-          <TableColumn prefWidth="227.0" text="Category Name" />
-          <TableColumn prefWidth="302.0" text="Description" />
-        </columns>
-      </TableView>
+      <AnchorPane fx:id="itemAnchorpane" layoutY="54.0" prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" />
    </children>
 </AnchorPane>

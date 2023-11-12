@@ -2,110 +2,18 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="649.0" prefWidth="656.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ComboPackFormController">
    <children>
-      <Pane layoutX="20.0" layoutY="455.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-         <children>
-            <ImageView fitHeight="75.0" fitWidth="99.0" layoutX="3.0" layoutY="14.0">
-               <image>
-                  <Image url="@../image/ClubHouseCrispyChickenMeal.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="20.0" layoutY="361.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-         <children>
-            <ImageView fitHeight="88.0" fitWidth="96.0" layoutX="7.0" layoutY="3.0">
-               <image>
-                  <Image url="@../image/CrunchyChickenMeal.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="20.0" layoutY="268.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-         <children>
-            <ImageView fitHeight="88.0" fitWidth="99.0" layoutX="6.0" layoutY="1.0">
-               <image>
-                  <Image url="@../image/crispy-wrap-meal-new.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="20.0" layoutY="175.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-         <children>
-            <ImageView fitHeight="88.0" fitWidth="99.0" layoutX="9.0" layoutY="-1.0">
-               <image>
-                  <Image url="@../image/chickenroyale-new-meal.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="20.0" layoutY="82.0" prefHeight="88.0" prefWidth="324.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
-         <children>
-            <ImageView fitHeight="82.0" fitWidth="99.0" layoutX="9.0" layoutY="4.0">
-               <image>
-                  <Image url="@../image/CrunchyChickenMeal.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="121.0" layoutY="3.0" prefHeight="37.0" prefWidth="189.0" text="Chicken Burger Meal">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="99.0" prefHeight="37.0" prefWidth="189.0" text="Chicken Royal Meal">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="190.0" prefHeight="37.0" prefWidth="201.0" text="Crispy Chicken Wrap Meal">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="284.0" prefHeight="37.0" prefWidth="201.0" text="Crunchy ChickenMeal">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="377.0" prefHeight="37.0" prefWidth="201.0" text="Crunchy ChickenMeal">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="39.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 950.00" textFill="#4ad71f">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="132.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 1300.00" textFill="#4ad71f">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="225.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 880.00" textFill="#4ad71f">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="316.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 1380.00" textFill="#4ad71f">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label layoutX="121.0" layoutY="409.0" prefHeight="37.0" prefWidth="189.0" text="Rs. 1150.00" textFill="#4ad71f">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <Label layoutX="91.0" layoutY="28.0" text="Combo Pack">
          <font>
             <Font name="System Bold" size="31.0" />
@@ -221,5 +129,14 @@
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
+      <ScrollPane layoutX="4.0" layoutY="82.0" prefHeight="558.0" prefWidth="359.0">
+         <content>
+            <GridPane fx:id="combogridpane">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

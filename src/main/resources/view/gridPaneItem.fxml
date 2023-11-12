@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="112.0" prefWidth="340.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.GridPaneItemController">
+   <children>
+      <ImageView fx:id="img" fitHeight="86.0" fitWidth="86.0" layoutX="18.0" layoutY="14.0">
+         <image>
+            <Image url="@../image/clubHouseChipsyChiken.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="nameLabel" layoutX="125.0" layoutY="32.0" text="Club House Chipsy Chicken ">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLabel" layoutX="150.0" layoutY="75.0" text="680.00" textFill="#4ad71f">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="322.0" layoutY="38.0" />
+      <Label layoutX="127.0" layoutY="74.0" text="Rs." textFill="#4ad71f">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

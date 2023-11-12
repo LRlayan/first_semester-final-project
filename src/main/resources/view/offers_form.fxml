@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="649.0" prefWidth="656.0" style="-fx-background-color: #EDEDED;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.OffersFormController">
    <children>
       <Pane layoutX="40.0" layoutY="419.0" prefHeight="216.0" prefWidth="577.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;">
@@ -164,7 +163,6 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <JFXButton prefHeight="168.0" prefWidth="577.0" text="." textFill="#ff8e00" />
             <JFXButton layoutY="164.0" prefHeight="168.0" prefWidth="577.0" text="." textFill="#ff8e00" />
             <JFXButton layoutY="337.0" prefHeight="219.0" prefWidth="577.0" text="." textFill="#ff8e00" />
          </children>

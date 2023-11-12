@@ -1,36 +1,23 @@
-package lk.ijse.hotBurger.dto.tm;
+package lk.ijse.hotBurger.dto;
 
-import java.awt.*;
+public class AddNewItemDto {
+    private String itemCode;
+    private String name;
+    private double unitPrice;
+    private double unitCost;
 
-public class ItemTm {
-        int id;
-        String itemCode;
-        String name;
-        double unitPrice;
-        double unitCost;
-        String categoryId;
+    private String categoryId;
+    private int id;
 
-        Button btnDelete;
-        Button btnUpdate;
+    public AddNewItemDto(){
 
-        public ItemTm(){}
-    public ItemTm(int id, String itemCode, String name, double unitPrice, double unitCost, String categoryId , Button btnUpdate , Button btnDelete) {
-        this.id = id;
+    }
+    public AddNewItemDto(String itemCode, String name, double unitPrice, double unitCost , String categoryId) {
         this.itemCode = itemCode;
         this.name = name;
         this.unitPrice = unitPrice;
         this.unitCost = unitCost;
         this.categoryId = categoryId;
-        this.btnDelete = btnDelete;
-        this.btnUpdate = btnUpdate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getItemCode() {
@@ -75,13 +62,19 @@ public class ItemTm {
 
     @Override
     public String toString() {
-        return "ItemTm{" +
-                "id=" + id +
-                ", itemCode='" + itemCode + '\'' +
+        return "addNewItemDto{" +
+                "itemCode='" + itemCode + '\'' +
                 ", name='" + name + '\'' +
-                ", unitPrice=" + unitPrice +
-                ", unitCost=" + unitCost +
-                ", categoryId='" + categoryId + '\'' +
+                ", unitPrice='" + unitPrice + '\'' +
+                ", unitCost='" + unitCost + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

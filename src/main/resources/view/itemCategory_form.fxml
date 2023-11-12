@@ -14,7 +14,7 @@
             <Font name="System Bold" size="11.0" />
          </font>
       </JFXButton>
-      <TextField layoutX="64.0" layoutY="56.0" prefHeight="40.0" prefWidth="265.0" promptText="   search category" style="-fx-background-radius: 40;">
+      <TextField layoutX="64.0" layoutY="56.0" prefHeight="40.0" prefWidth="265.0" promptText="   search category" style="-fx-background-radius: 40;" styleClass="shadow" stylesheets="@../styleSheet.css">
          <font>
             <Font size="16.0" />
          </font>
@@ -24,10 +24,11 @@
             <Font size="17.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="150.0" layoutY="158.0" prefHeight="289.0" prefWidth="650.0" style="-fx-background-color: D9D9D9;">
+      <TableView fx:id="categoryTable" layoutX="121.0" layoutY="169.0" prefHeight="260.0" prefWidth="723.0" style="-fx-background-color: D9D9D9;" styleClass="shadow" stylesheets="@../styleSheet.css">
         <columns>
-          <TableColumn prefWidth="227.0" text="Category Name" />
-          <TableColumn prefWidth="422.0" text="Description" />
+          <TableColumn fx:id="colCategoryId" prefWidth="173.66668701171875" text="Category Id" />
+          <TableColumn fx:id="colName" prefWidth="163.0" text="Category Name" />
+            <TableColumn fx:id="colDescription" prefWidth="385.0" text="Description" />
         </columns>
       </TableView>
    </children>

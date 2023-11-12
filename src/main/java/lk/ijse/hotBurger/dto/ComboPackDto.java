@@ -4,11 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 
-public class ItemDto {
+public class ComboPackDto {
     int id;
     String itemCode;
     String name;
@@ -16,6 +16,4 @@ public class ItemDto {
     double unitCost;
     String categoryId;
     private String image;
-
-
 }

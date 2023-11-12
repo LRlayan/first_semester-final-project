@@ -59,7 +59,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="105.0" layoutY="133.0" prefHeight="46.0" prefWidth="90.0" text="Rs. 320.00" textFill="#4ad71f">
+            <Label layoutX="105.0" layoutY="133.0" prefHeight="46.0" prefWidth="90.0" text="Rs. 270.00" textFill="#4ad71f">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -218,7 +218,7 @@
                   <Font name="System Bold" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="118.0" layoutY="198.0" prefHeight="46.0" prefWidth="90.0" text="Rs. 120.00" textFill="#4ad71f">
+            <Label layoutX="118.0" layoutY="198.0" prefHeight="46.0" prefWidth="90.0" text="Rs. 60.00" textFill="#4ad71f">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>
