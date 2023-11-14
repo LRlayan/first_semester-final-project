@@ -5,7 +5,7 @@ public class ItemCategoryDto {
     private int id;
     private String name;
     private String description;
-    ItemCategoryDto(){}
+    public ItemCategoryDto(){}
 
     public ItemCategoryDto(int id, String name, String description) {
         this.id = id;

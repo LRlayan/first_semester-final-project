@@ -19,6 +19,10 @@ public class UserDto {
         this.phone = phone;
     }
 
+    public UserDto(String username) {
+        this.username = username;
+    }
+
     public int getId() {
         return id;
     }

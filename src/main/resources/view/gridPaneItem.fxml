@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -29,5 +30,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <JFXButton onAction="#allItemButtonOnAction" prefHeight="112.0" prefWidth="340.0" style="-fx-background-radius: 10;" text="." textFill="#ffc77d" />
    </children>
 </AnchorPane>

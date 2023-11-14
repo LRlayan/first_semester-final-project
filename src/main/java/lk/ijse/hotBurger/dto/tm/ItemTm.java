@@ -14,15 +14,15 @@ public class ItemTm {
         Button btnUpdate;
 
         public ItemTm(){}
-    public ItemTm(int id, String itemCode, String name, double unitPrice, double unitCost, String categoryId , Button btnUpdate , Button btnDelete) {
+    public ItemTm(int id, String itemCode, String name, double unitPrice, double unitCost, String categoryId ) {
         this.id = id;
         this.itemCode = itemCode;
         this.name = name;
         this.unitPrice = unitPrice;
         this.unitCost = unitCost;
         this.categoryId = categoryId;
-        this.btnDelete = btnDelete;
-        this.btnUpdate = btnUpdate;
+      //  this.btnDelete = btnDelete;
+       // this.btnUpdate = btnUpdate;
     }
 
     public int getId() {

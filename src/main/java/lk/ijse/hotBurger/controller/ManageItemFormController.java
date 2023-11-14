@@ -71,7 +71,7 @@ public class ManageItemFormController implements Initializable {
         colItemPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colItemCost.setCellValueFactory(new PropertyValueFactory<>("unitCost"));
         colItemCategoryId.setCellValueFactory(new PropertyValueFactory<>("categoryId"));
-        colUpdateDelete.setCellValueFactory(new PropertyValueFactory<>("btn"));
+       // colUpdateDelete.setCellValueFactory(new PropertyValueFactory<>("btn"));
 
     }
     ObservableList<ItemTm> observableList = FXCollections.observableArrayList();
@@ -88,9 +88,9 @@ public class ManageItemFormController implements Initializable {
                         dto.getName(),
                         dto.getUnitPrice(),
                         dto.getUnitCost(),
-                        dto.getCategoryId(),
-                        new java.awt.Button(),
-                        new java.awt.Button()
+                        dto.getCategoryId()
+                     //   new java.awt.Button(),
+                       // new java.awt.Button()
                 ));
             }
             itemtable.setItems(observableList);

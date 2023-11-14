@@ -1,7 +1,5 @@
 package lk.ijse.hotBurger.controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,7 +7,6 @@ import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import lk.ijse.hotBurger.dto.IngrediantsDto;
 import lk.ijse.hotBurger.dto.ItemDto;
 import lk.ijse.hotBurger.model.ItemModel;
 
@@ -20,6 +17,11 @@ import java.util.ResourceBundle;
 
 public class BurgerCategoryFormController implements Initializable {
 
+    private static BurgerCategoryFormController instance;
+
+    public static BurgerCategoryFormController getInstance() {
+        return instance;
+    }
     public GridPane gridpane;
 
     @FXML
@@ -50,25 +52,6 @@ public class BurgerCategoryFormController implements Initializable {
         }
     }
     protected void clickLoadGridPane(int categoryId , String fxml){
-
-           /* burgerGridpane.getChildren().clear();
-            List<ItemDto> itemDtos = ItemModel.loadAllItemCategoryVise(categoryId);
-            System.out.println(itemDtos.size());
-
-            int column = 0;
-            int row = 0;
-            for (int i = 0; i < itemDtos.size(); i++) {
-                GridPaneItemController.x = i;
-                GridPaneItemController.categoryId = categoryId;
-                try {
-                    Parent parent = FXMLLoader.load(getClass().getResource(fxml));
-                    burgerGridpane.add(parent, column, row++);
-                    GridPane.setMargin(parent, new Insets(6, 6, 6, 6));
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }*/
 
         if (gridpane == null) {
             System.out.println("burgerGridpane is null");
@@ -110,7 +93,7 @@ public class BurgerCategoryFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        instance = this;
         try {
             duplicate.changeOnlyAnchorPane("/view/removeIngrediant_form.fxml" , ingrediantAnchorpane);
             duplicate.changeOnlyAnchorPane("/view/toppings_form.fxml" , toppingsAnchorpane);

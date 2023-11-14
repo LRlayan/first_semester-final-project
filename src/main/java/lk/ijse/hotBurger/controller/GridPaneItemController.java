@@ -1,5 +1,6 @@
 package lk.ijse.hotBurger.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -38,8 +39,7 @@ public class GridPaneItemController implements Initializable {
     public void setImgAndNameAndPrice(){
         List<ItemDto> itemDto = ItemModel.loadAllItemCategoryVise(categoryId);
         System.out.println("OBJ:  "+itemDto.size());
-       // Image image = new Image(url);
-       // img.setImage(Image.fromPlatformImage(itemDto.get(x).getImage()));
+
         Image image = new Image(itemDto.get(x).getImage());
         ImageView imageView = new ImageView(image);
 
@@ -47,4 +47,10 @@ public class GridPaneItemController implements Initializable {
         nameLabel.setText(itemDto.get(x).getName());
         priceLabel.setText(String.valueOf(itemDto.get(x).getUnitPrice()));
     }
+
+    @FXML
+    void allItemButtonOnAction(ActionEvent event) {
+
+    }
+
 }

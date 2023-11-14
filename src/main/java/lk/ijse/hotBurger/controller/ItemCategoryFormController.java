@@ -2,25 +2,20 @@ package lk.ijse.hotBurger.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.GridPane;
 import lk.ijse.hotBurger.dto.ItemCategoryDto;
 import lk.ijse.hotBurger.dto.tm.ItemCategoryTm;
 import lk.ijse.hotBurger.model.ItemCategoryModel;
+import javafx.collections.transformation.SortedList;
+import javafx.scene.control.TextField;
 
-import java.awt.*;
-import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class ItemCategoryFormController {
     @FXML
@@ -34,6 +29,10 @@ public class ItemCategoryFormController {
 
     @FXML
     private TableColumn<?, ?> colName;
+
+    @FXML
+    private TextField categorySearchBar;
+
     ItemCategoryModel itemCategoryModel = new ItemCategoryModel();
 
     public void initialize(){
@@ -46,8 +45,10 @@ public class ItemCategoryFormController {
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
     }
+
+    ObservableList<ItemCategoryTm> obList = FXCollections.observableArrayList();
+
     public void loadAllItemCategory(){
-        ObservableList<ItemCategoryTm> obList = FXCollections.observableArrayList();
 
         try{
             List<ItemCategoryDto> itemCategoryDtoList = itemCategoryModel.loadAllItemCategory();
@@ -64,5 +65,35 @@ public class ItemCategoryFormController {
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    void categorySearchBarOnAction(ActionEvent event) {
+
+            FilteredList<ItemCategoryTm> filteredList = new FilteredList<>(obList, b -> true);
+            categorySearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+                filteredList.setPredicate(itemCategoryDto -> {
+                    if (newValue == null || newValue.isEmpty() || newValue.isBlank()) {
+                        return true;
+                    }
+                    String searchKeyword = newValue.toLowerCase();
+
+                    String categoryId = String.valueOf(itemCategoryDto.getId());
+                    String categoryName = itemCategoryDto.getName();
+                    String description = itemCategoryDto.getDescription();
+
+                    if (categoryId != null && categoryId.toLowerCase().contains(searchKeyword)
+                            || description != null && description.toLowerCase().contains(searchKeyword)
+                            || categoryName != null && categoryName.toLowerCase().contains(searchKeyword)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+            });
+
+            SortedList<ItemCategoryTm> sortedData = new SortedList<>(filteredList);
+            sortedData.comparatorProperty().bind(categoryTable.comparatorProperty());
+            categoryTable.setItems(sortedData);
     }
 }
