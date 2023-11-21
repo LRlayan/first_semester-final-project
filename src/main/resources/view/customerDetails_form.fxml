@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.CustomerDetailsFormController">
    <children>
       <Label layoutX="71.0" layoutY="59.0" text="Customer Delivery Information">
@@ -14,7 +13,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="customerTable" layoutX="41.0" layoutY="132.0" prefHeight="387.0" prefWidth="882.0">
+      <TableView fx:id="customerTable" layoutX="41.0" layoutY="132.0" prefHeight="387.0" prefWidth="882.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
         <columns>
           <TableColumn fx:id="customerId" prefWidth="57.66667175292969" text="id" />
           <TableColumn fx:id="firstName" prefWidth="112.33332824707031" text="First Name" />

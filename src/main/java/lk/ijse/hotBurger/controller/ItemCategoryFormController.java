@@ -38,6 +38,7 @@ public class ItemCategoryFormController {
     public void initialize(){
         setCellValueFactory();
         loadAllItemCategory();
+        categorySearchBar();
     }
 
     public void setCellValueFactory(){
@@ -70,30 +71,34 @@ public class ItemCategoryFormController {
     @FXML
     void categorySearchBarOnAction(ActionEvent event) {
 
-            FilteredList<ItemCategoryTm> filteredList = new FilteredList<>(obList, b -> true);
-            categorySearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
-                filteredList.setPredicate(itemCategoryDto -> {
-                    if (newValue == null || newValue.isEmpty() || newValue.isBlank()) {
-                        return true;
-                    }
-                    String searchKeyword = newValue.toLowerCase();
 
-                    String categoryId = String.valueOf(itemCategoryDto.getId());
-                    String categoryName = itemCategoryDto.getName();
-                    String description = itemCategoryDto.getDescription();
+    }
 
-                    if (categoryId != null && categoryId.toLowerCase().contains(searchKeyword)
-                            || description != null && description.toLowerCase().contains(searchKeyword)
-                            || categoryName != null && categoryName.toLowerCase().contains(searchKeyword)) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
+    public void categorySearchBar(){
+        FilteredList<ItemCategoryTm> filteredList = new FilteredList<>(obList, b -> true);
+        categorySearchBar.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(itemCategoryDto -> {
+                if (newValue == null || newValue.isEmpty() || newValue.isBlank()) {
+                    return true;
+                }
+                String searchKeyword = newValue.toLowerCase();
+
+                String categoryId = String.valueOf(itemCategoryDto.getId());
+                String categoryName = itemCategoryDto.getName();
+                String description = itemCategoryDto.getDescription();
+
+                if (categoryId != null && categoryId.toLowerCase().contains(searchKeyword)
+                        || description != null && description.toLowerCase().contains(searchKeyword)
+                        || categoryName != null && categoryName.toLowerCase().contains(searchKeyword)) {
+                    return true;
+                } else {
+                    return false;
+                }
             });
+        });
 
-            SortedList<ItemCategoryTm> sortedData = new SortedList<>(filteredList);
-            sortedData.comparatorProperty().bind(categoryTable.comparatorProperty());
-            categoryTable.setItems(sortedData);
+        SortedList<ItemCategoryTm> sortedData = new SortedList<>(filteredList);
+        sortedData.comparatorProperty().bind(categoryTable.comparatorProperty());
+        categoryTable.setItems(sortedData);
     }
 }

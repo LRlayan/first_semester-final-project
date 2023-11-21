@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.DatePicker?>
@@ -14,7 +16,10 @@
 
 <AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageItemFormController">
    <children>
-      <DatePicker layoutX="66.0" layoutY="119.0" prefHeight="33.0" prefWidth="207.0" promptText="select date" style="-fx-background-color: FFFFFF;" />
+      <DatePicker layoutX="66.0" layoutY="119.0" prefHeight="33.0" prefWidth="207.0" promptText="select date" style="-fx-background-color: FFFFFF;">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></DatePicker>
       <JFXComboBox focusColor="#1b3990" layoutX="304.0" layoutY="120.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="207.0" promptText="select order type" unFocusColor="#ff9000">
          <opaqueInsets>
             <Insets />
@@ -31,7 +36,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="itemtable" layoutX="66.0" layoutY="173.0" prefHeight="355.0" prefWidth="840.0" styleClass="shadow2" stylesheets="@../styleSheet.css">
+      <TableView fx:id="itemtable" layoutX="66.0" layoutY="173.0" prefHeight="355.0" prefWidth="840.0">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="110.66667175292969" text="Item Code" />
           <TableColumn fx:id="colItemName" prefWidth="226.0" text="Name" />
@@ -40,12 +45,29 @@
             <TableColumn fx:id="colItemCategoryId" prefWidth="101.0" text="Category Id" />
             <TableColumn fx:id="colUpdateDelete" prefWidth="173.0" />
         </columns>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <stylesheets>
+            <URL value="@../styleSheet.css" />
+            <URL value="@../tableStyleSheet.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="shadow2" />
+            <String fx:value="scrollPane" />
+            <String fx:value="column-header" />
+            <String fx:value="table-row-cell" />
+            <String fx:value="column-header-background" />
+         </styleClass>
       </TableView>
       <Pane layoutX="907.0" layoutY="47.0" prefHeight="55.0" prefWidth="57.0" />
       <TextField fx:id="txtSearchbar" layoutX="66.0" layoutY="58.0" prefHeight="39.0" prefWidth="612.0" promptText="    Search...." style="-fx-background-radius: 30;" styleClass="shadow2" stylesheets="@../styleSheet.css">
          <font>
             <Font size="16.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </TextField>
    </children>
 </AnchorPane>

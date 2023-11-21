@@ -35,8 +35,10 @@ public class AdminLoginFormController {
 
         for (int i = 0; i < allUsers.size(); i++) {
             if (username.equals(allUsers.get(i).getUsername()) && password.equals(allUsers.get(i).getPassword()) && allUsers.get(i).getType().equals("admin")) {
+                AccountInfoFormController.userId = allUsers.get(i).getId();
                 navigate.navigate("/view/mainDashboard_form.fxml", loginAnchorPane);
             } else if (username.equals(allUsers.get(i).getUsername()) && password.equals(allUsers.get(i).getPassword()) && allUsers.get(i).getType().equals("cashier")){
+                AccountInfoFormController.userId = allUsers.get(i).getId();
                 navigate.navigate("/view/CashierWork_form.fxml", loginAnchorPane);
             }
         }

@@ -45,7 +45,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-        <TableView layoutX="62.0" layoutY="324.0" prefHeight="213.0" prefWidth="840.0">
+        <TableView layoutX="62.0" layoutY="324.0" prefHeight="213.0" prefWidth="840.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
             <columns>
                 <TableColumn prefWidth="92.33332824707031" text="Order Id" />
                 <TableColumn prefWidth="114.33334350585938" text="Date" />

@@ -30,6 +30,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <JFXButton onAction="#allItemButtonOnAction" prefHeight="112.0" prefWidth="340.0" style="-fx-background-radius: 10;" text="." textFill="#ffc77d" />
+      <JFXButton fx:id="itemsBtn" onAction="#allItemButtonOnAction" prefHeight="112.0" prefWidth="340.0" style="-fx-background-radius: 10;" text="." textFill="#ffc77d" />
    </children>
 </AnchorPane>

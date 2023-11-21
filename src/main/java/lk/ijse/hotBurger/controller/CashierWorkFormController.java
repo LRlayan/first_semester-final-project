@@ -5,26 +5,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import lk.ijse.hotBurger.dto.GridPaneItemDto;
-import lk.ijse.hotBurger.dto.ItemDto;
-import lk.ijse.hotBurger.model.ItemModel;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class CashierWorkFormController implements Initializable {
+public class CashierWorkFormController extends ImageView implements Initializable {
+
+    public static OrderPaneFormController orderPaneForm;
+    @FXML
+    AnchorPane orderAnchorPane;
 
     @FXML
     private AnchorPane cashierMainAnchorpane;
+    private static CashierWorkFormController instance;
 
     @FXML
     private JFXButton btnDelivery;
@@ -37,9 +38,21 @@ public class CashierWorkFormController implements Initializable {
 
     @FXML
     private AnchorPane mainAnchorpane;
-
     private BurgerCategoryFormController burgerGrid;
     DuplicateMethodController duplicate = new DuplicateMethodController();
+
+
+//    public static CashierWorkFormController getInstance(){
+//        return instance;
+//    }
+
+//    public static ImageView getCartImage(){
+//        return cartImage;
+//    }
+
+//    public static AnchorPane getOrderAnchorpane(){
+//        return orderAnchorPane;
+//    }
 
     public void onBurgerClick(ActionEvent actionEvent) throws IOException {
         loadGrid(1);
@@ -102,14 +115,38 @@ public class CashierWorkFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+      instance = this;
+      //  GridPaneItemController.anchorPane = orderAnchorPane;
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/burgerCategory_form.fxml"));
             Parent root = loader.load();
             burgerGrid = loader.getController();
-            mainAnchorpane.getChildren().removeAll();
-            mainAnchorpane.getChildren().setAll(root);
+
+            if (mainAnchorpane != null) {
+                mainAnchorpane.getChildren().removeAll();
+                mainAnchorpane.getChildren().setAll(root);
+            } else {
+                System.out.println("mainAnchorpane is null");
+            }
+
+//            FXMLLoader orderPane = new FXMLLoader(getClass().getResource("/view/orderPane_form.fxml"));
+//            Parent orderPaneRoot = orderPane.load();
+//
+//            if (orderAnchorPane != null) {
+//                orderAnchorPane.getChildren().removeAll();
+//                orderAnchorPane.getChildren().setAll(orderPaneRoot);
+//            } else {
+//                System.out.println("orderAnchorPane is null");
+//            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public Node getStyleableNode() {
+        return super.getStyleableNode();
+    }
+
+
 }

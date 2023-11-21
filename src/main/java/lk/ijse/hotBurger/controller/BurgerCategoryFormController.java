@@ -34,7 +34,7 @@ public class BurgerCategoryFormController implements Initializable {
 
     public void initializeLoadGridPane(int categoryId){
         List<ItemDto> itemDtos = ItemModel.loadAllItemCategoryVise(categoryId);
-        System.out.println(itemDtos.size());
+        //System.out.println(itemDtos.size());
 
         int column = 0;
         int row = 0;
@@ -66,8 +66,6 @@ public class BurgerCategoryFormController implements Initializable {
             System.out.println("itemDtos is null");
             return;
         }
-
-        System.out.println(itemDtos.size());
 
         int column = 0;
         int row = 0;

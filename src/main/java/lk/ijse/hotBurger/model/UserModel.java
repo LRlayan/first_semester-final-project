@@ -42,16 +42,28 @@ public class UserModel {
         return usernames;
     }
 
-    public boolean updateUser(String confirmUsername,String oldUsername ) throws SQLException {
+    public boolean updateUser(String confirmUsername,int userId ) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "UPDATE user SET username = ? WHERE id = ?";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-        System.out.println(confirmUsername  + "  "  + oldUsername);
+       // System.out.println(confirmUsername  + "  "  + oldUsername);
       preparedStatement.setString(1,confirmUsername);
      // preparedStatement.setString(2,oldUsername);
-        preparedStatement.setInt(2,userDto.getId());
+        preparedStatement.setInt(2,userId);
 
         return preparedStatement.executeUpdate() > 0;
+    }
+
+    public boolean updateUserPassword(String confirmPassword , int userId) throws SQLException {
+
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "UPDATE user SET password = ? WHERE id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setString( 1 , confirmPassword);
+        preparedStatement.setInt(2,userId);
+
+        return  preparedStatement.executeUpdate() > 0;
     }
 }
