@@ -21,7 +21,7 @@
             <Font size="17.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="categoryTable" layoutX="121.0" layoutY="169.0" prefHeight="250.0" prefWidth="723.0" style="-fx-background-color: D9D9D9;">
+      <TableView fx:id="categoryTable" layoutX="121.0" layoutY="169.0" prefHeight="250.0" prefWidth="723.0" style="-fx-background-color: FFFFFF;">
         <columns>
           <TableColumn fx:id="colCategoryId" prefWidth="173.66668701171875" text="Category Id" />
           <TableColumn fx:id="colName" prefWidth="163.0" text="Category Name" />

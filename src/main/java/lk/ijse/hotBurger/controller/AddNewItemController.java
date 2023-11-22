@@ -10,6 +10,7 @@ import lk.ijse.hotBurger.model.AddNewItemModel;
 import lk.ijse.hotBurger.model.CustomerModel;
 
 import java.sql.SQLException;
+import java.util.regex.Pattern;
 
 public class AddNewItemController {
     @FXML
@@ -31,23 +32,32 @@ public class AddNewItemController {
 
     DuplicateMethodController duplicate = new DuplicateMethodController();
     CustomerModel customerModel = new CustomerModel();
+
     public void createBtnOnAction(ActionEvent actionEvent) {
         String code = txtItemCode.getText();
         String name = txtItemName.getText();
-        double unitPrice = Double.parseDouble(txtUnitPrice.getText());
-        double unitCost = Double.parseDouble(txtUnitCost.getText());
-        String categoryId = txtItemCategory.getText();
 
-        var newItemDto = new AddNewItemDto(code,name,unitPrice,unitCost,categoryId);
-        try{
-            boolean isAdd = AddNewItemModel.addNewItem(newItemDto);
-            if (isAdd){
-                new Alert(Alert.AlertType.CONFIRMATION,"Added Successfully!").show();
-                duplicate.clickButtonCloseWindow(btnCreate);
+        boolean matches = Pattern.matches("\\S+", name);
+
+        if (matches){
+            double unitPrice = Double.parseDouble(txtUnitPrice.getText());
+            double unitCost = Double.parseDouble(txtUnitCost.getText());
+            String categoryId = txtItemCategory.getText();
+
+            var newItemDto = new AddNewItemDto(code,name,unitPrice,unitCost,categoryId);
+            try{
+                boolean isAdd = AddNewItemModel.addNewItem(newItemDto);
+                if (isAdd){
+                    new Alert(Alert.AlertType.CONFIRMATION,"Added Successfully!").show();
+                    duplicate.clickButtonCloseWindow(btnCreate);
+                }
+            }catch (SQLException e){
+                new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
             }
-        }catch (SQLException e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }else {
+            new Alert(Alert.AlertType.ERROR,"Name Field cannot be null").show();
         }
+
 
     }
 }

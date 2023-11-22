@@ -1,5 +1,6 @@
 package lk.ijse.hotBurger.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -10,6 +11,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import lk.ijse.hotBurger.dto.ItemDto;
 import lk.ijse.hotBurger.dto.tm.ItemTm;
 import lk.ijse.hotBurger.model.ItemModel;
@@ -44,12 +46,16 @@ public class ManageItemFormController implements Initializable {
     @FXML
     private TableView<ItemTm> itemtable;
 
-
     @FXML
     private TextField txtSearchbar;
 
+    @FXML
+    private TableColumn<?, ?> colDelete;
+
+    @FXML
+    private TableColumn<?, ?> colUpdate;
+
     ItemModel itemModel = new ItemModel();
-    ItemTm itemTm = new ItemTm();
 
     DuplicateMethodController duplicate = new DuplicateMethodController();
 
@@ -60,17 +66,15 @@ public class ManageItemFormController implements Initializable {
         searchBarItem();
     }
 
-    /*public void initialize() {
-
-        //searchBarItem();
-    }*/
-
     private void setCellValueFactory(){
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colItemPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
         colItemCost.setCellValueFactory(new PropertyValueFactory<>("unitCost"));
         colItemCategoryId.setCellValueFactory(new PropertyValueFactory<>("categoryId"));
+        colDelete.setCellValueFactory(new PropertyValueFactory<>("update"));
+        colUpdate.setCellValueFactory(new PropertyValueFactory<>("delete"));
+
        // colUpdateDelete.setCellValueFactory(new PropertyValueFactory<>("btn"));
 
     }
@@ -88,9 +92,9 @@ public class ManageItemFormController implements Initializable {
                         dto.getName(),
                         dto.getUnitPrice(),
                         dto.getUnitCost(),
-                        dto.getCategoryId()
-                     //   new java.awt.Button(),
-                       // new java.awt.Button()
+                        dto.getCategoryId(),
+                        new JFXButton("Update"),
+                        new JFXButton("Delete")
                 ));
             }
             itemtable.setItems(observableList);
@@ -98,13 +102,21 @@ public class ManageItemFormController implements Initializable {
         } catch (HeadlessException e) {
             throw new RuntimeException(e);
         }
+        for (int i = 0; i < observableList.size(); i++) {
+            observableList.get(i).getDelete().setTextFill(Color.WHITE);
+
+            observableList.get(i).getUpdate().setOnAction(event ->{
+
+            });
+            observableList.get(i).getDelete().setOnAction(event ->{
+
+            });
+        }
     }
 
     public void clickNewItemBtnOnActon(ActionEvent actionEvent) throws IOException {
         duplicate.popUpWindow("/view/addNewItem.fxml");
     }
-
-    ItemDto itemDto = new ItemDto();
 
     public void searchBarItem(){ //item Search logic
 

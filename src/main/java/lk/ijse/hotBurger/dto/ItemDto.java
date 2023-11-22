@@ -17,5 +17,4 @@ public class ItemDto {
     String categoryId;
     private String image;
 
-
 }

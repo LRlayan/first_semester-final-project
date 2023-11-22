@@ -7,8 +7,8 @@
 }
 
 .table-view .column-header-background{
-    -fx-background-color: linear-gradient(to right, #03a973, #48fdbc);
-    -fx-min-height: 40;
+    -fx-background-color: linear-gradient(to right, #ff7a00, #ff7a00);
+    -fx-min-height: 30;
 }
 
 .table-view .column-header-background .label{

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="298.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.CartTableController">
+   <children>
+      <TableView fx:id="tbl" layoutX="36.0" layoutY="51.0" prefHeight="200.0" prefWidth="377.0" stylesheets="@../tableStyleSheet.css">
+        <columns>
+          <TableColumn fx:id="colItemName" prefWidth="120.0" text="Item Name" />
+          <TableColumn fx:id="colUnitPrice" prefWidth="99.0" text="Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="74.0" text="Qty" />
+            <TableColumn fx:id="colTotal" prefWidth="83.0" text="Total" />
+        </columns>
+      </TableView>
+      <TextField fx:id="text" layoutX="35.0" layoutY="14.0" />
+      <TextField fx:id="txtName" layoutX="224.0" layoutY="14.0" />
+   </children>
+</AnchorPane>

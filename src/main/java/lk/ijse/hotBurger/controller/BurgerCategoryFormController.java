@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class BurgerCategoryFormController implements Initializable {
+    public static AnchorPane pane;
 
     private static BurgerCategoryFormController instance;
 
@@ -34,13 +35,13 @@ public class BurgerCategoryFormController implements Initializable {
 
     public void initializeLoadGridPane(int categoryId){
         List<ItemDto> itemDtos = ItemModel.loadAllItemCategoryVise(categoryId);
-        //System.out.println(itemDtos.size());
 
         int column = 0;
         int row = 0;
         for (int i = 0; i < itemDtos.size(); i++) {
             GridPaneItemController.x = i;
             GridPaneItemController.categoryId = categoryId;
+            GridPaneItemController.ancpane = pane;
             try {
                 Parent parent = FXMLLoader.load(getClass().getResource("/view/gridPaneItem.fxml"));
                 gridpane.add(parent,column,row++);

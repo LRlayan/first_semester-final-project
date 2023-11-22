@@ -92,6 +92,11 @@ CREATE TABLE customer(
             mobile VARCHAR(10) NOT NULL
 );
 
+INSERT INTO customer VALUES
+            (not null , 'ramesh' , 'layan' , 'beruwala' , '0765937705'),
+            (not null , 'kasun' , 'gayan' , 'maggona' , '0756985623'),
+            (not null , 'keshan' , 'senura' , 'kaluthara' , '0784562561');
+
 /*
 ALTER TABLE customer DROP COLUMN customerId;
 DROP TABLE deliveryDetail;

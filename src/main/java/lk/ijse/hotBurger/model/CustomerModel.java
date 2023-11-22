@@ -28,16 +28,16 @@ public class CustomerModel {
         boolean isSaved = preparedStatement.executeUpdate() > 0;
 
         return isSaved;
-    }
+    }*/
 
-   /* public List<CustomerDto> getAllCustomer() throws SQLException {
+    public List<CustomerDto> getAllCustomer() throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "SELECT * FROM customer";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
         ResultSet resultSet = preparedStatement.executeQuery();
 
-        ArrayList<CustomerDto> dtoList = new ArrayList<>();
+        List<CustomerDto> dtoList = new ArrayList<>();
         while (resultSet.next()) {
             dtoList.add(
                     new CustomerDto(
@@ -50,5 +50,5 @@ public class CustomerModel {
             );
         }
         return dtoList;
-    }*/
+    }
 }

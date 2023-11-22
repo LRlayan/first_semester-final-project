@@ -13,15 +13,20 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.hotBurger.AppInitializer;
 import lk.ijse.hotBurger.dto.GridPaneItemDto;
 import lk.ijse.hotBurger.dto.ItemDto;
+import lk.ijse.hotBurger.dto.tm.CustomerTm;
+import lk.ijse.hotBurger.dto.tm.ItemTm;
+import lk.ijse.hotBurger.model.CustomerModel;
 import lk.ijse.hotBurger.model.ItemModel;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.sql.SQLException;
+import java.util.*;
+
+import static java.lang.Integer.parseInt;
 
 public class GridPaneItemController implements Initializable {
+    public static AnchorPane ancpane;
 
     public static int x;
 
@@ -32,11 +37,10 @@ public class GridPaneItemController implements Initializable {
 
     @FXML
     private Label nameLabel;
-
     @FXML
     private Label priceLabel;
-    private CashierWorkFormController cashierWorkFormController;
 
+    ItemModel itemModel = new ItemModel();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -45,7 +49,6 @@ public class GridPaneItemController implements Initializable {
 
     public void setImgAndNameAndPrice() {
         List<ItemDto> itemDto = ItemModel.loadAllItemCategoryVise(categoryId);
-        System.out.println("OBJ:  " + itemDto.size());
 
         Image image = new Image(itemDto.get(x).getImage());
         ImageView imageView = new ImageView(image);
@@ -56,20 +59,36 @@ public class GridPaneItemController implements Initializable {
     }
 
     @FXML
-    void allItemButtonOnAction(ActionEvent event) throws IOException {
-        FXMLLoader cashierWork = new FXMLLoader(getClass().getResource("/view/CashierWork_form.fxml"));
+    void allItemButtonOnAction(ActionEvent event) throws IOException, SQLException {
+       /* FXMLLoader cashierWork = new FXMLLoader(getClass().getResource("/view/CashierWork_form.fxml"));
         Parent cashierWorkRoot = cashierWork.load();
-
-        cashierWorkFormController = cashierWork.getController();
 
         FXMLLoader orderPane = new FXMLLoader(getClass().getResource("/view/orderPane_form.fxml"));
         Parent orderPaneRoot = orderPane.load();
 
+        cashierWorkFormController = cashierWork.getController();
+
         if (cashierWorkFormController.orderAnchorPane != null) {
+            cashierWorkFormController.orderAnchorPane.setVisible(false);
             cashierWorkFormController.orderAnchorPane.getChildren().removeAll();
             cashierWorkFormController.orderAnchorPane.getChildren().setAll(orderPaneRoot);
         } else {
             System.out.println("orderAnchorPane is null");
+        }*/
+     getClickItemDetails();
+
+    }
+
+    public void getClickItemDetails() {
+
+        try {
+            CartTableController.price = Double.parseDouble(priceLabel.getText());
+            CartTableController.itemName = nameLabel.getText();
+            Parent parent = FXMLLoader.load(getClass().getResource("/view/cartTable.fxml"));
+            ancpane.getChildren().clear();
+            ancpane.getChildren().add(parent);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

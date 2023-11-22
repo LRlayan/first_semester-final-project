@@ -1,6 +1,8 @@
 package lk.ijse.hotBurger.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,18 +10,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.hotBurger.dto.ItemDto;
+import lk.ijse.hotBurger.dto.tm.ItemTm;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class CashierWorkFormController extends ImageView implements Initializable {
+public class CashierWorkFormController implements Initializable {
 
-    public static OrderPaneFormController orderPaneForm;
     @FXML
     AnchorPane orderAnchorPane;
 
@@ -38,21 +46,38 @@ public class CashierWorkFormController extends ImageView implements Initializabl
 
     @FXML
     private AnchorPane mainAnchorpane;
+
     private BurgerCategoryFormController burgerGrid;
+
+    @FXML
+    private TableView<ItemTm> cartTable;
+
+    @FXML
+    private TableColumn<?, ?> tblItemName;
+
+    @FXML
+    private TableColumn<?, ?> tblQty;
+
+    @FXML
+    private TableColumn<?, ?> tblTotal;
+
+    @FXML
+    private TableColumn<?, ?> tblUnitPrice;
+
     DuplicateMethodController duplicate = new DuplicateMethodController();
 
+    GridPaneItemController grid = new GridPaneItemController();
 
-//    public static CashierWorkFormController getInstance(){
-//        return instance;
-//    }
+    private void setValueFactory(){
+        tblItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tblUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+        tblQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
+        tblTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
+    }
+    ObservableList<ItemTm> observableList = FXCollections.observableArrayList();
+    public void loadClickItemDetails(){
 
-//    public static ImageView getCartImage(){
-//        return cartImage;
-//    }
-
-//    public static AnchorPane getOrderAnchorpane(){
-//        return orderAnchorPane;
-//    }
+    }
 
     public void onBurgerClick(ActionEvent actionEvent) throws IOException {
         loadGrid(1);
@@ -108,6 +133,7 @@ public class CashierWorkFormController extends ImageView implements Initializabl
     void clickOnDineInBtnAction(ActionEvent event) {
         duplicate.clickButtonChangeColor(btnDineIn,btnPickUp,btnDelivery);
     }
+
     @FXML
     void clickOnPickUpBtnAction(ActionEvent event) {
         duplicate.clickButtonChangeColor(btnPickUp,btnDelivery,btnDineIn);
@@ -116,8 +142,11 @@ public class CashierWorkFormController extends ImageView implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
       instance = this;
+      setValueFactory();
+     // loadClickItemDetails();
       //  GridPaneItemController.anchorPane = orderAnchorPane;
         try {
+            BurgerCategoryFormController.pane = orderAnchorPane;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/burgerCategory_form.fxml"));
             Parent root = loader.load();
             burgerGrid = loader.getController();
@@ -128,25 +157,15 @@ public class CashierWorkFormController extends ImageView implements Initializabl
             } else {
                 System.out.println("mainAnchorpane is null");
             }
-
-//            FXMLLoader orderPane = new FXMLLoader(getClass().getResource("/view/orderPane_form.fxml"));
-//            Parent orderPaneRoot = orderPane.load();
-//
-//            if (orderAnchorPane != null) {
-//                orderAnchorPane.getChildren().removeAll();
-//                orderAnchorPane.getChildren().setAll(orderPaneRoot);
-//            } else {
-//                System.out.println("orderAnchorPane is null");
-//            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/view/cartTable.fxml"));
+            orderAnchorPane.getChildren().clear();
+            orderAnchorPane.getChildren().add(parent);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
-    @Override
-    public Node getStyleableNode() {
-        return super.getStyleableNode();
-    }
-
-
 }

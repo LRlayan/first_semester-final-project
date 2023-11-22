@@ -1,6 +1,6 @@
 package lk.ijse.hotBurger.dto.tm;
 
-public class CustomerTm {
+public class CustomerTm<C> {
     private int id;
     private String fNAme;
     private String lName;

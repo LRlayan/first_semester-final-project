@@ -43,7 +43,8 @@
             <TableColumn fx:id="colItemPrice" prefWidth="116.0" text="Unit Price" />
             <TableColumn fx:id="colItemCost" prefWidth="112.0" text="Unit Cost" />
             <TableColumn fx:id="colItemCategoryId" prefWidth="101.0" text="Category Id" />
-            <TableColumn fx:id="colUpdateDelete" prefWidth="173.0" />
+            <TableColumn fx:id="colDelete" prefWidth="173.0" />
+            <TableColumn fx:id="colUpdate" prefWidth="173.0" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
