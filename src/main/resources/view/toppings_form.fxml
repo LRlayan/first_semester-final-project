@@ -14,7 +14,7 @@
       <Line endX="100.0" layoutX="144.0" layoutY="92.0" startX="-100.0" stroke="#d7d7d7" />
       <Line endX="100.0" layoutX="144.0" layoutY="145.0" startX="-100.0" stroke="#d7d7d7" />
       <Line endX="100.0" layoutX="144.0" layoutY="196.0" startX="-100.0" stroke="#d7d7d7" />
-      <JFXButton layoutX="90.0" layoutY="212.0" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #FF8328; -fx-background-radius: 6;" text="Confirm" />
+      <JFXButton layoutX="90.0" layoutY="212.0" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #FF8328; -fx-background-radius: 6;" text="Confirm" textFill="WHITE" />
       <Label layoutX="16.0" layoutY="8.0" text="Toppings">
          <font>
             <Font name="System Bold" size="16.0" />

@@ -46,4 +46,19 @@ public class ItemModel {
         }
         return itemDtos;
     }
+
+    public boolean updateItem(ItemDto itemDto) throws SQLException {
+       Connection connection = DbConnection.getInstance().getConnection();
+       String sql = "UPDATE item SET name = ?, itemCode = ?,unitPrice = ?,unitCost = ?,categoryId = ? WHERE id = ?";
+
+       PreparedStatement preparedStatement = connection.prepareStatement(sql);
+       preparedStatement.setString(1,itemDto.getName());
+        preparedStatement.setString(2,itemDto.getItemCode());
+        preparedStatement.setDouble(3,itemDto.getUnitPrice());
+        preparedStatement.setDouble(4,itemDto.getUnitCost());
+        preparedStatement.setString(5, (itemDto.getCategoryId()));
+       preparedStatement.setInt(6,itemDto.getId());
+
+       return preparedStatement.executeUpdate() > 0;
+    }
 }

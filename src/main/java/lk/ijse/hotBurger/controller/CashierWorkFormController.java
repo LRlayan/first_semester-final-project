@@ -16,12 +16,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.hotBurger.db.DbConnection;
 import lk.ijse.hotBurger.dto.ItemDto;
 import lk.ijse.hotBurger.dto.tm.ItemTm;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.awt.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -49,35 +56,8 @@ public class CashierWorkFormController implements Initializable {
 
     private BurgerCategoryFormController burgerGrid;
 
-    @FXML
-    private TableView<ItemTm> cartTable;
-
-    @FXML
-    private TableColumn<?, ?> tblItemName;
-
-    @FXML
-    private TableColumn<?, ?> tblQty;
-
-    @FXML
-    private TableColumn<?, ?> tblTotal;
-
-    @FXML
-    private TableColumn<?, ?> tblUnitPrice;
-
+    DuplicateMethodController duplicateMethodController = new DuplicateMethodController();
     DuplicateMethodController duplicate = new DuplicateMethodController();
-
-    GridPaneItemController grid = new GridPaneItemController();
-
-    private void setValueFactory(){
-        tblItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tblUnitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        tblQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        tblTotal.setCellValueFactory(new PropertyValueFactory<>("total"));
-    }
-    ObservableList<ItemTm> observableList = FXCollections.observableArrayList();
-    public void loadClickItemDetails(){
-
-    }
 
     public void onBurgerClick(ActionEvent actionEvent) throws IOException {
         loadGrid(1);
@@ -120,31 +100,15 @@ public class CashierWorkFormController implements Initializable {
         }
     }
 
-    public void btnDeliveryDetailOnAction(ActionEvent actionEvent) throws IOException {
-        duplicate.clickButtonChangeColor(btnDelivery,btnPickUp,btnDineIn);
-        duplicate.popUpWindow("/view/delivery_form.fxml");
-    }
 
     public void cashierLogoutOnAction(MouseEvent mouseEvent) throws IOException {
-        duplicate.navigate("/view/adminLogin_form.fxml" , cashierMainAnchorpane);
+        duplicate.navigate("/view/adminLogin_form.fxml", cashierMainAnchorpane);
     }
 
-    @FXML
-    void clickOnDineInBtnAction(ActionEvent event) {
-        duplicate.clickButtonChangeColor(btnDineIn,btnPickUp,btnDelivery);
-    }
-
-    @FXML
-    void clickOnPickUpBtnAction(ActionEvent event) {
-        duplicate.clickButtonChangeColor(btnPickUp,btnDelivery,btnDineIn);
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      instance = this;
-      setValueFactory();
-     // loadClickItemDetails();
-      //  GridPaneItemController.anchorPane = orderAnchorPane;
+        instance = this;
         try {
             BurgerCategoryFormController.pane = orderAnchorPane;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/burgerCategory_form.fxml"));
@@ -157,15 +121,32 @@ public class CashierWorkFormController implements Initializable {
             } else {
                 System.out.println("mainAnchorpane is null");
             }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        try {
+
             Parent parent = FXMLLoader.load(getClass().getResource("/view/cartTable.fxml"));
             orderAnchorPane.getChildren().clear();
             orderAnchorPane.getChildren().add(parent);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    @FXML
+    void reportsOnAction(ActionEvent event) throws JRException, SQLException {
+     InputStream reportsAsStream = getClass().getResourceAsStream("/reports/hotBurgers.jrxml");
+     JasperDesign load = JRXmlLoader.load(reportsAsStream);
+     JasperReport jasperReport1 = JasperCompileManager.compileReport(load);
+     JasperFillManager.fillReport(jasperReport1,
+                null,
+                DbConnection.getInstance().getConnection()
+
+        );
+        JasperViewer.viewReport(new JasperPrint() ,false);
+    }
+
+    @FXML
+    void btnMailBoxOnAction(ActionEvent event) throws IOException {
+        duplicate.popUpWindow("/view/gmailItem_form.fxml");
+
     }
 }

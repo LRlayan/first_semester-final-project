@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import lk.ijse.hotBurger.dto.CustomerDto;
+import lk.ijse.hotBurger.dto.DeliveryDto;
 import lk.ijse.hotBurger.dto.tm.CustomerTm;
 import lk.ijse.hotBurger.model.CustomerModel;
 import org.controlsfx.control.textfield.AutoCompletionBinding;
@@ -21,9 +22,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DeliveryFormController {
-
-    @FXML
-    private JFXTextArea additionalAddress;
 
     @FXML
     private CheckBox checkBoNewCustomer;
@@ -52,11 +50,14 @@ public class DeliveryFormController {
     @FXML
     private TextField learnTextField;
 
+    @FXML
     private TextField txtMobileNo;
 
     @FXML
     private Label lblNewAddress;
 
+    @FXML
+    private JFXTextArea txtAdditionalAddress;
 
     @FXML
     private JFXButton btnClose;
@@ -67,6 +68,10 @@ public class DeliveryFormController {
     DuplicateMethodController duplicate = new DuplicateMethodController();
 
     CustomerModel customerModel = new CustomerModel();
+
+    static CustomerDto customerDto = new CustomerDto();
+
+    static DeliveryDto deliveryDto = new DeliveryDto();
 
     private AutoCompletionBinding<String> autoCompletionBinding;
 
@@ -80,7 +85,7 @@ public class DeliveryFormController {
         });
         setCheckBoxDefaultSelected();
         searchBarAutoTextField.setVisible(false);
-        additionalAddress.setVisible(false);
+        txtAdditionalAddress.setVisible(false);
         lblNewAddress.setVisible(false);
 
 
@@ -110,7 +115,14 @@ public class DeliveryFormController {
         autoCompletionBinding = TextFields.bindAutoCompletion(learnTextField , _customerDtoLis);
     }
     public void deliveryDetailConfirmBtnOnAction(javafx.event.ActionEvent actionEvent) {
-       //duplicate.clickButtonCloseWindow(btnConfirm);
+
+        customerDto.setId(0);
+        customerDto.setfName(txtFirstName.getText());
+        customerDto.setlName(txtLastName.getText());
+        customerDto.setAddress(txtAreaAddress.getText());
+        customerDto.setMobileNo(txtMobileNo.getText());
+        deliveryDto.setAddress( txtAdditionalAddress.getText());
+        deliveryDto.setAdditionalMobileNo(txtAdditionalMobile.getText());
 
     }
 
@@ -151,10 +163,10 @@ public class DeliveryFormController {
     public void primaryAndDeliveryAddressCheckBox(MouseEvent mouseEvent) throws IOException {
 
         if (!checkboxPrimaryAndDeliveryAddress.isSelected()) {
-           additionalAddress.setVisible(true);
+            txtAdditionalAddress.setVisible(true);
            lblNewAddress.setVisible(true);
         } else if (checkboxPrimaryAndDeliveryAddress.isSelected()) {
-            additionalAddress.setVisible(false);
+            txtAdditionalAddress.setVisible(false);
             lblNewAddress.setVisible(false);
         }
     }

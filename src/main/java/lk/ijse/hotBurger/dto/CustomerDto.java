@@ -5,24 +5,29 @@ public class CustomerDto {
     private int id;
     private String fName;
     private String lName;
-    private String addressLine3;
-    private String phone1;
+    private String address;
+    private String newAddress;
+    private String mobileNo;
+    private String additionalMobileNo;
 
     public CustomerDto(){}
 
-    public CustomerDto(int id, String fName, String lName, String addressLine3, String phone1) {
+    public CustomerDto(int id, String fName, String lName, String address, String mobileNo) {
         this.id = id;
         this.fName = fName;
         this.lName = lName;
-        this.addressLine3 = addressLine3;
-        this.phone1 = phone1;
+        this.address = address;
+        this.mobileNo = mobileNo;
     }
 
-    public CustomerDto(String fName, String lName, String addressLine3, String phone1) {
+    public CustomerDto(String fName, String lName, String mobileNo, String additionalMobileNo , String address , String newAddress){
         this.fName = fName;
         this.lName = lName;
-        this.addressLine3 = addressLine3;
-        this.phone1 = phone1;
+        this.mobileNo = mobileNo;
+        this.address = address;
+        this.newAddress = newAddress;
+        this.additionalMobileNo = additionalMobileNo;
+
     }
 
     public int getId() {
@@ -49,20 +54,36 @@ public class CustomerDto {
         this.lName = lName;
     }
 
-    public String getAddressLine3() {
-        return addressLine3;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAddressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getPhone1() {
-        return phone1;
+    public String getNewAddress() {
+        return newAddress;
     }
 
-    public void setPhone1(String phone1) {
-        this.phone1 = phone1;
+    public void setNewAddress(String newAddress) {
+        this.newAddress = newAddress;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
+    }
+
+    public void setMobileNo(String mobileNo) {
+        this.mobileNo = mobileNo;
+    }
+
+    public String getAdditionalMobileNo() {
+        return additionalMobileNo;
+    }
+
+    public void setAdditionalMobileNo(String additionalMobileNo) {
+        this.additionalMobileNo = additionalMobileNo;
     }
 
     @Override
@@ -71,8 +92,8 @@ public class CustomerDto {
                 "id=" + id +
                 ", fNAme='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
-                ", addressLine3='" + addressLine3 + '\'' +
-                ", phone1='" + phone1 + '\'' +
+                ", addressLine3='" + address + '\'' +
+                ", phone1='" + mobileNo + '\'' +
                 '}';
     }
 }

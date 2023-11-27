@@ -65,12 +65,12 @@
       <Label layoutX="27.0" layoutY="311.0" text="Additional mobile No" />
       <AnchorPane fx:id="loadSearchBarAnchorpane" layoutX="181.0" layoutY="72.0" prefHeight="40.0" prefWidth="242.0">
          <children>
-            <TextField fx:id="searchBarAutoTextField" layoutX="-1.0" layoutY="3.0" prefHeight="32.0" prefWidth="242.0" promptText="   search" style="-fx-background-radius: 30;" />
+            <TextField fx:id="searchBarAutoTextField" layoutX="-1.0" layoutY="3.0" prefHeight="32.0" prefWidth="242.0" promptText="   search" style="-fx-background-radius: 30;" styleClass="shadow2" />
          </children></AnchorPane>
       <JFXCheckBox fx:id="checkBoNewCustomer" layoutX="25.0" layoutY="80.0" onMouseClicked="#newCustomerCheckBoxOnAction" text="New Customer" />
       <JFXCheckBox fx:id="checkboxPrimaryAndDeliveryAddress" layoutX="28.0" layoutY="269.0" onMouseClicked="#primaryAndDeliveryAddressCheckBox" text="Use Primary Address for Delivery" />
-      <JFXTextArea fx:id="additionalAddress" layoutX="231.0" layoutY="332.0" prefHeight="87.0" prefWidth="193.0" style="-fx-background-color: FFFFFF;" styleClass="shadow" />
-      <JFXTextArea layoutX="231.0" layoutY="203.0" prefHeight="87.0" prefWidth="193.0" style="-fx-background-color: FFFFFF;" styleClass="shadow" />
+      <JFXTextArea fx:id="txtAdditionalAddress" layoutX="231.0" layoutY="332.0" prefHeight="87.0" prefWidth="193.0" style="-fx-background-color: FFFFFF;" styleClass="shadow" />
+      <JFXTextArea fx:id="txtAreaAddress" layoutX="231.0" layoutY="203.0" prefHeight="87.0" prefWidth="193.0" style="-fx-background-color: FFFFFF;" styleClass="shadow" />
       <Label fx:id="lblNewAddress" layoutX="232.0" layoutY="302.0" text="New Address" />
       <TextField fx:id="learnTextField" layoutX="25.0" layoutY="465.0" prefHeight="25.0" prefWidth="32.0" visible="false" />
       <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="404.0" layoutY="15.0">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="429.0" prefWidth="413.0" style="-fx-background-color: FFFFFF; -fx-border-color: FF7A00;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.UpdateItemPopWindowController">
+   <children>
+      <Label layoutX="142.0" layoutY="28.0" text="Update Items">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="33.0" layoutY="95.0" text="Item Name" />
+      <Label layoutX="220.0" layoutY="171.0" text="Item Code" />
+      <Label layoutX="33.0" layoutY="173.0" text="Unit Price" />
+      <Label layoutX="219.0" layoutY="252.0" text="Unit Cost" />
+      <Label layoutX="31.0" layoutY="252.0" text="Category Id" />
+      <TextField fx:id="txtItemCode" layoutX="218.0" layoutY="197.0" prefHeight="32.0" prefWidth="162.0" promptText="item code" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtItemName" layoutX="32.0" layoutY="119.0" prefHeight="32.0" prefWidth="350.0" promptText="item name" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtUnitPrice" layoutX="32.0" layoutY="197.0" prefHeight="32.0" promptText="unit price" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtUnitCost" layoutX="219.0" layoutY="275.0" prefHeight="32.0" prefWidth="162.0" promptText="unit cost" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+      <TextField fx:id="txtCategoryId" layoutX="31.0" layoutY="277.0" prefHeight="32.0" promptText="category id" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+      <JFXButton buttonType="RAISED" layoutX="148.0" layoutY="360.0" onAction="#updateOnAction" prefHeight="32.0" prefWidth="118.0" style="-fx-background-color: FF7A00; -fx-background-radius: 10;" text="Update" textFill="WHITE" />
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="364.0" layoutY="18.0">
+         <image>
+            <Image url="@../image/CloseButton.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="itemUpdateClose" buttonType="RAISED" layoutX="363.0" layoutY="18.0" onAction="#closeButtonOnAction" prefHeight="32.0" prefWidth="32.0" style="-fx-background-radius: 30;" text="." textFill="#ff8800" />
+   </children>
+</AnchorPane>

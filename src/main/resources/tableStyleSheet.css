@@ -21,7 +21,7 @@
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #99e7cb;
+    -fx-background-color: #ffcf8b;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }

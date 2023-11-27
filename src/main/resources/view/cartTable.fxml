@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="298.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.CartTableController">
+<AnchorPane prefHeight="569.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.CartTableController">
    <children>
       <TableView fx:id="tbl" layoutX="36.0" layoutY="51.0" prefHeight="200.0" prefWidth="377.0" stylesheets="@../tableStyleSheet.css">
         <columns>
@@ -15,7 +18,59 @@
             <TableColumn fx:id="colTotal" prefWidth="83.0" text="Total" />
         </columns>
       </TableView>
-      <TextField fx:id="text" layoutX="35.0" layoutY="14.0" />
-      <TextField fx:id="txtName" layoutX="224.0" layoutY="14.0" />
+      <JFXButton fx:id="btnDelivery" buttonType="RAISED" layoutX="35.0" layoutY="304.0" onAction="#btnDeliveryDetailOnAction" prefHeight="31.0" prefWidth="99.0" style="-fx-border-color: #FF8328; -fx-border-radius: 0; -fx-border-width: 1;" text="Delivery" />
+      <JFXButton fx:id="btnPickUp" buttonType="RAISED" layoutX="317.0" layoutY="304.0" onAction="#clickOnPickUpBtnAction" prefHeight="31.0" prefWidth="99.0" style="-fx-border-color: #FF8328; -fx-border-radius: 0; -fx-border-width: 1;" text="Pick up" />
+      <JFXButton fx:id="btnDineIn" buttonType="RAISED" layoutX="177.0" layoutY="304.0" onAction="#clickOnDineInBtnAction" prefHeight="31.0" prefWidth="99.0" style="-fx-border-color: #FF8328; -fx-border-radius: 0; -fx-border-width: 1;" text="Dine in" />
+      <JFXButton buttonType="RAISED" layoutX="114.0" layoutY="523.0" onAction="#placeOrderOnAction" prefHeight="35.0" prefWidth="225.0" style="-fx-background-color: #FF8328; -fx-background-radius: 10;" text="Place Order" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="35.0" layoutY="467.0" prefHeight="46.0" prefWidth="74.0" text="Total">
+         <font>
+            <Font name="Bell MT Bold" size="28.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotal" alignment="CENTER_RIGHT" layoutX="163.0" layoutY="467.0" prefHeight="46.0" prefWidth="256.0" style="-fx-text-alignment: right;" text="Rs. 0.00">
+         <font>
+            <Font name="Bell MT Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="363.0" prefHeight="31.0" prefWidth="142.0" text="Sub Total">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="423.0" prefHeight="31.0" prefWidth="142.0" text="Discount( 14% )">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="393.0" prefHeight="31.0" prefWidth="142.0" text="Delivery Charge">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+      </Label>
+      <Line endX="279.0" layoutX="136.0" layoutY="469.0" startX="-100.0" />
+      <Label layoutX="36.0" layoutY="445.0" text="(if th total is more than 5800)" textFill="#a8a8a8">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubTotal" alignment="CENTER_RIGHT" layoutX="190.0" layoutY="363.0" prefHeight="31.0" prefWidth="225.0" text="Rs. 0.00">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDiscount" alignment="CENTER_RIGHT" layoutX="298.0" layoutY="423.0" prefHeight="31.0" prefWidth="119.0" text="Rs. 0.00">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDeliveryCharge" alignment="CENTER_RIGHT" layoutX="191.0" layoutY="393.0" prefHeight="31.0" prefWidth="225.0" text="Rs. 0.00">
+         <font>
+            <Font name="Bell MT Bold" size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

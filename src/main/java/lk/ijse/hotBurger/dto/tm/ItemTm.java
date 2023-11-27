@@ -32,6 +32,15 @@ public class ItemTm {
         this.name = name;
     }
 
+    public ItemTm(int id, String itemCode, String name, double unitPrice, double unitCost, String categoryId) {
+        this.id = id;
+        this.itemCode = itemCode;
+        this.name = name;
+        this.unitPrice = unitPrice;
+        this.unitCost = unitCost;
+        this.categoryId = categoryId;
+    }
+
     public int getId() {
         return id;
     }

@@ -4,31 +4,24 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageItemFormController">
+<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.gmailItemController">
    <children>
-      <JFXButton alignment="TOP_CENTER" buttonType="RAISED" layoutX="755.0" layoutY="57.0" onAction="#clickNewItemBtnOnActon" prefHeight="39.0" prefWidth="141.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="New Item" textFill="WHITE">
-         <font>
-            <Font size="17.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <TableView fx:id="itemtable" layoutX="66.0" layoutY="124.0" prefHeight="379.0" prefWidth="840.0">
+      <TableView fx:id="itemtable" layoutX="146.0" layoutY="124.0" prefHeight="310.0" prefWidth="667.0">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="110.66667175292969" text="Item Code" />
           <TableColumn fx:id="colItemName" prefWidth="226.0" text="Name" />
             <TableColumn fx:id="colItemPrice" prefWidth="116.0" text="Unit Price" />
             <TableColumn fx:id="colItemCost" prefWidth="112.0" text="Unit Cost" />
             <TableColumn fx:id="colItemCategoryId" prefWidth="101.0" text="Category Id" />
-            <TableColumn fx:id="colDelete" prefWidth="173.0" />
-            <TableColumn fx:id="colUpdate" prefWidth="173.0" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -53,5 +46,29 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </TextField>
+      <TextField fx:id="emailSend" layoutX="85.0" layoutY="490.0" prefHeight="41.0" prefWidth="360.0" promptText="     example@gmail.com" style="-fx-background-radius: 30;" styleClass="shadow2" stylesheets="@../styleSheet.css">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <JFXButton buttonType="RAISED" layoutX="756.0" layoutY="492.0" onAction="#menuSendOnActionEmail" prefHeight="39.0" prefWidth="141.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="Send" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="97.0" layoutY="466.0" text="Send Menu For Customer">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="closeButtonImg" fitHeight="41.0" fitWidth="45.0" layoutX="916.0" layoutY="3.0">
+         <image>
+            <Image url="@../image/close.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="closeButton" buttonType="RAISED" layoutX="927.0" layoutY="11.0" onAction="#closeButtonOnActon" prefHeight="25.0" prefWidth="24.0" text="." textFill="WHITE" />
    </children>
 </AnchorPane>
