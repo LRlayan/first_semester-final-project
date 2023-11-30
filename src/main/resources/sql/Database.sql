@@ -20,10 +20,6 @@ UPDATE user SET username = 'o' where id = 2;
 UPDATE user SET password = '1' where id = 1;
 UPDATE user SET password = '1' where id = 2;
 
-/*
-select type from user where username = 'pereraHotBurger';
-select type from user where username = 'orderAccount';
-*/
 
 CREATE TABLE itemCategory(
              id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -97,10 +93,6 @@ INSERT INTO customer VALUES
             (not null , 'kasun' , 'gayan' , 'maggona' , '0756985623'),
             (not null , 'keshan' , 'senura' , 'kaluthara' , '0784562561');
 
-/*
-ALTER TABLE customer DROP COLUMN customerId;
-DROP TABLE deliveryDetail;
- */
 
 CREATE TABLE deliveryDetail(
             id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -110,15 +102,11 @@ CREATE TABLE deliveryDetail(
             CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-/*drop table deliveryDetail;
-delete from deliveryDetail;
-delete from customer;*/
 
 CREATE TABLE orders(
             id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-            type VARCHAR(50 )NOT NULL,
-            date date NOT NULL,
-            description VARCHAR(50) NOT NULL,
+            type VARCHAR(50)NOT NULL,
+            date VARCHAR(20) NOT NULL,
             subTotal DECIMAL(10,2) NOT NULL,
             discount DECIMAL(10,2) NOT NULL,
             deliveryCharge DECIMAL(10,2) NOT NULL,
@@ -126,11 +114,7 @@ CREATE TABLE orders(
             customerId INT NOT NULL,
             CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
-/*
-drop table orders;
-ALTER TABLE orders DROP FOREIGN KEY orders_ibfk_1;
-ALTER TABLE orders ADD FOREIGN KEY (customerId) REFERENCES customer(id) ON DELETE SET NULL;
-*/
+
 CREATE TABLE toppings(
             id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
             name VARCHAR(50) NOT NULL,
@@ -156,16 +140,6 @@ CREATE TABLE orderDetail(
              CONSTRAINT FOREIGN KEY (itemCode) REFERENCES item(itemCode) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-/*CREATE TABLE payment(
-            id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-            amount DECIMAL(10,2) NOT NULL,
-            orderId INT NOT NULL,
-            customerId VARCHAR(20) NOT NULL,
-            FOREIGN KEY (orderId) REFERENCES orders (id) ON DELETE CASCADE ON UPDATE CASCADE,
-            FOREIGN KEY (customerId) REFERENCES customer(customerId) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-drop table payment;*/
 
 CREATE TABLE toppingsSalesDetail(
             qty INT NOT NULL,
@@ -175,12 +149,3 @@ CREATE TABLE toppingsSalesDetail(
             CONSTRAINT FOREIGN KEY (toppingsId) REFERENCES toppings (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-/*CREATE TABLE testCustomer(
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    fname varchar(20) not null,
-    lname varchar(20) not null,
-    addressL1 varchar(20) not null,
-    addressL2 varchar(20) not null,
-    addressL3 varchar(20) not null,
-    phone1 varchar(20) not null
-);*/

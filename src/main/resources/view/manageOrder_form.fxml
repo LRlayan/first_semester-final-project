@@ -15,8 +15,8 @@
 
 <AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageOrderFormController">
     <children>
-        <DatePicker layoutX="66.0" layoutY="119.0" prefHeight="33.0" prefWidth="207.0" promptText="select date" style="-fx-background-color: FFFFFF;" />
-        <JFXComboBox focusColor="#1b3990" layoutX="304.0" layoutY="120.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="207.0" promptText="order type" unFocusColor="#ff9000">
+        <DatePicker layoutX="456.0" layoutY="59.0" prefHeight="33.0" prefWidth="207.0" promptText="select date" style="-fx-background-color: FFFFFF;" />
+        <JFXComboBox focusColor="#1b3990" layoutX="694.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="207.0" promptText="order type" unFocusColor="#ff9000">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
@@ -37,27 +37,19 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </TextField>
-        <JFXButton buttonType="RAISED" layoutX="748.0" layoutY="55.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="Item Category" textFill="WHITE">
-            <font>
-                <Font size="17.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </JFXButton>
-        <TableView layoutX="62.0" layoutY="324.0" prefHeight="213.0" prefWidth="840.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
+        <TableView fx:id="orderTable" layoutX="62.0" layoutY="285.0" prefHeight="252.0" prefWidth="840.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
             <columns>
-                <TableColumn prefWidth="92.33332824707031" text="Order Id" />
-                <TableColumn prefWidth="114.33334350585938" text="Date" />
-                <TableColumn prefWidth="81.66665649414062" text="Type" />
-                <TableColumn prefWidth="108.66668701171875" text="Customer Id" />
-                <TableColumn prefWidth="125.0" text="Sub Total" />
-                <TableColumn prefWidth="89.0" text="Discount" />
-                <TableColumn prefWidth="99.0" text="Dilivery Charge" />
-            <TableColumn prefWidth="127.0" text="Price" />
+                <TableColumn fx:id="colOrderId" prefWidth="92.33332824707031" text="Order Id" />
+                <TableColumn fx:id="colDate" prefWidth="114.33334350585938" text="Date" />
+                <TableColumn fx:id="colType" prefWidth="81.66665649414062" text="Type" />
+                <TableColumn fx:id="colCustomerID" prefWidth="108.66668701171875" text="Customer Id" />
+                <TableColumn fx:id="colSubTotal" prefWidth="125.0" text="Sub Total" />
+                <TableColumn fx:id="colDiscount" prefWidth="89.0" text="Discount" />
+                <TableColumn fx:id="colDeliveryCharge" prefWidth="99.0" text="Dilivery Charge" />
+            <TableColumn fx:id="colPrice" prefWidth="127.0" text="Price" />
             </columns>
         </TableView>
-      <Pane layoutX="63.0" layoutY="172.0" prefHeight="132.0" prefWidth="838.0" style="-fx-background-radius: 30; -fx-background-color: FFE0C3;">
+      <Pane layoutX="63.0" layoutY="129.0" prefHeight="132.0" prefWidth="838.0" style="-fx-background-radius: 30; -fx-background-color: FFE0C3;">
          <children>
             <Label layoutX="42.0" layoutY="88.0" text="total sales" textFill="#8d8d8d">
                <font>

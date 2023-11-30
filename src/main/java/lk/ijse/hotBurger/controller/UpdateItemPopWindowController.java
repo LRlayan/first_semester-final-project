@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import lk.ijse.hotBurger.dto.ItemDto;
+import lk.ijse.hotBurger.dto.tm.ItemTm;
 import lk.ijse.hotBurger.model.ItemModel;
 
 import java.net.URL;
@@ -15,6 +16,12 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class UpdateItemPopWindowController implements Initializable {
+    public static String categoryId;
+    public static String itemCode;
+    public static String name;
+    public static String unitPrice;
+    public static String unitCost;
+
     @FXML
     private TextField txtCategoryId;
 
@@ -66,7 +73,8 @@ public class UpdateItemPopWindowController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadDataTextField();
+        //loadDataTextField();
+        setData();
     }
 
     public void loadDataTextField(){
@@ -80,5 +88,13 @@ public class UpdateItemPopWindowController implements Initializable {
             txtUnitCost.setText(String.valueOf(dtoList.get(i).getUnitCost()));
             txtUnitPrice.setText(String.valueOf(dtoList.get(i).getUnitPrice()));
         }
+    }
+
+    public void setData(){
+        txtCategoryId.setText(categoryId);
+        txtItemName.setText(name);
+        txtUnitPrice.setText(String.valueOf(unitPrice));
+        txtUnitCost.setText(String.valueOf(unitCost));
+        txtItemCode.setText(itemCode);
     }
 }

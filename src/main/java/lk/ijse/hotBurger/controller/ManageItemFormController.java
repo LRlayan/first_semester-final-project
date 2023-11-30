@@ -9,8 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
@@ -18,7 +18,6 @@ import javafx.scene.paint.Color;
 import lk.ijse.hotBurger.dto.ItemDto;
 import lk.ijse.hotBurger.dto.tm.ItemTm;
 import lk.ijse.hotBurger.model.ItemModel;
-import javafx.scene.control.TextField;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
@@ -28,6 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -65,12 +65,11 @@ public class ManageItemFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> colUpdate;
 
-    @FXML
-    private TextField emailSend;
-
     ItemModel itemModel = new ItemModel();
 
     DuplicateMethodController duplicate = new DuplicateMethodController();
+
+    ObservableList<ItemTm> observableList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -79,7 +78,6 @@ public class ManageItemFormController implements Initializable {
         loadAllItem();
         searchBarItem();
     }
-
     private void setCellValueFactory(){
         colItemCode.setCellValueFactory(new PropertyValueFactory<>("itemCode"));
         colItemName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -89,7 +87,6 @@ public class ManageItemFormController implements Initializable {
         colDelete.setCellValueFactory(new PropertyValueFactory<>("update"));
         colUpdate.setCellValueFactory(new PropertyValueFactory<>("delete"));
     }
-    ObservableList<ItemTm> observableList = FXCollections.observableArrayList();
 
     public void loadAllItem(){
 
@@ -120,7 +117,20 @@ public class ManageItemFormController implements Initializable {
             observableList.get(i).getUpdate().setBackground(Background.fill(Color.GREEN));
             observableList.get(i).getUpdate().setAlignment(Pos.CENTER);
 
-            observableList.get(i).getUpdate().setOnAction(event ->{
+            String name = observableList.get(i).getName();
+            String categoryId = observableList.get(i).getCategoryId();
+            String itemCode = observableList.get(i).getItemCode();
+            String unitPrice = String.valueOf(observableList.get(i).getUnitPrice());
+            String unitCost = String.valueOf(observableList.get(i).getUnitCost());
+
+            observableList.get(i).getUpdate().setOnAction(event -> {
+
+            UpdateItemPopWindowController.name = name;
+            UpdateItemPopWindowController.categoryId = categoryId;
+            UpdateItemPopWindowController.itemCode = itemCode;
+            UpdateItemPopWindowController.unitCost = unitCost;
+            UpdateItemPopWindowController.unitPrice = unitPrice;
+
                 try {
                     duplicate.popUpWindow("/view/updateItemPopWindow.fxml");
                 } catch (IOException e) {
@@ -128,12 +138,34 @@ public class ManageItemFormController implements Initializable {
                 }
             });
 
-            observableList.get(i).getDelete().setOnAction(event ->{
+            observableList.get(i).getDelete().setOnAction(event -> {
+                ButtonType yes = new ButtonType("Yes" , ButtonBar.ButtonData.OK_DONE);
+                ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
+                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,"Are you sure delete item!",yes,no).showAndWait();
+
+                itemtable.getSelectionModel().selectedItemProperty().addListener((observable , oldValue , newValue ) -> {
+                    if (type.orElse(no) == yes) {
+                        deleteDate(newValue);
+                        itemtable.refresh();
+                    }
+                });
             });
         }
     }
 
+    private void deleteDate(ItemTm row){
+        String itemCode = row.getItemCode();
+
+        try{
+            boolean isDelete = itemModel.deleteItem(itemCode);
+            if (isDelete){
+                new Alert(Alert.AlertType.CONFIRMATION,"Delete Successfully!").show();
+            }
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
+        }
+    }
     public void clickNewItemBtnOnActon(ActionEvent actionEvent) throws IOException {
         duplicate.popUpWindow("/view/addNewItem.fxml");
     }
@@ -165,60 +197,5 @@ public class ManageItemFormController implements Initializable {
         SortedList<ItemTm> sortedData = new SortedList<>(filteredList);
         sortedData.comparatorProperty().bind(itemtable.comparatorProperty());
         itemtable.setItems(sortedData);
-    }
-
-    @FXML
-    void menuSendOnActionEmail(ActionEvent event) {
-        String emailSendText = emailSend.getText();
-        String from = "rameshlayan4@gmail.com";
-        // Sender's email password
-        String password = "watawala";
-        // Recipient's email address
-        String to = emailSendText;
-
-        // Set the host and properties for the session
-        Properties properties = new Properties();
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.port", "587");
-        properties.put("mail.smtp.auth", "true");
-        properties.put("mail.smtp.starttls.enable", "true");
-
-        // Create a session with the given properties
-        Session session = Session.getInstance(properties, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(from, password);
-            }
-        });
-
-        try {
-            // Create a default MimeMessage object
-            Message message = new MimeMessage(session);
-
-            // Set From: header field of the header
-            message.setFrom(new InternetAddress(from));
-
-            // Set To: header field of the header
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-
-            // Set Subject: header field
-            message.setSubject("Testing JavaMail");
-
-            // Now set the actual message
-            message.setText("Hello, this is a test email from JavaMail!");
-
-            // Send message
-            Transport.send(message);
-
-            System.out.println("Email sent successfully!");
-
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @FXML
-    void closeButtonOnActon(ActionEvent event) {
-
     }
 }

@@ -1,34 +1,31 @@
 package lk.ijse.hotBurger.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.hotBurger.dto.CustomerDto;
 import lk.ijse.hotBurger.dto.tm.CustomerTm;
 import lk.ijse.hotBurger.model.CustomerModel;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class CustomerDetailsFormController {
-
+public class CustomerDetailsFormController implements Initializable {
     @FXML
-    private TableColumn<?, ?> addressLine01;
-
-    @FXML
-    private TableColumn<?, ?> addressLine02;
-
-    @FXML
-    private TableColumn<?, ?> addressLine03;
+    private TableColumn<?, ?> address;
 
     @FXML
     private TableColumn<?, ?> customerId;
 
     @FXML
-    private TableColumn<?, ?> customerId1;
-
-    @FXML
-    private TableView<?> customerTable;
+    private TableView<CustomerTm> customerTable;
 
     @FXML
     private TableColumn<?, ?> firstName;
@@ -37,28 +34,42 @@ public class CustomerDetailsFormController {
     private TableColumn<?, ?> lastName;
 
     @FXML
-    private TableColumn<?, ?> phone1;
+    private TableColumn<?, ?> mobile;
 
-    @FXML
-    private TableColumn<?, ?> phone2;
+    CustomerModel customerModel = new CustomerModel();
 
-   /* public void loadAllCustomerDetails(){
-        var model = new CustomerModel();
+    ObservableList<CustomerTm> obList = FXCollections.observableArrayList();
 
-        try {
-            List<CustomerDto> dtoList = model.getAllCustomer();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loadAllCustomers();
+        setCellValueFactory();
+    }
 
-            for ( CustomerDto customerDto : dtoList ) {
-                new CustomerTm(
-                        customerDto.getId(),
-                        customerDto.getfName(),
-                        customerDto.getlName(),
-                        customerDto.getAddressLine3(),
-                        customerDto.getPhone1()
-                );
+    public void loadAllCustomers(){
+
+        try{
+            List<CustomerDto> customerDto = customerModel.getAllCustomers();
+            for (CustomerDto dto : customerDto) {
+                obList.add(new CustomerTm(
+                        dto.getId(),
+                        dto.getFName(),
+                        dto.getLName(),
+                        dto.getAddress(),
+                        dto.getMobile()
+                ));
             }
+            customerTable.setItems(obList);
         }catch (SQLException e){
-            throw new RuntimeException(e);
+            new Alert(Alert.AlertType.ERROR,e.getMessage());
         }
-    }*/
+    }
+
+    public void setCellValueFactory(){
+        customerId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        firstName.setCellValueFactory(new PropertyValueFactory<>("fName"));
+        lastName.setCellValueFactory(new PropertyValueFactory<>("lName"));
+        address.setCellValueFactory(new PropertyValueFactory<>("address"));
+        mobile.setCellValueFactory(new PropertyValueFactory<>("mobile"));
+    }
 }

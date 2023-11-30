@@ -160,11 +160,11 @@
             <Font size="14.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="54.0" fitWidth="58.0" layoutX="28.0" layoutY="9.0">
+      <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="21.0" layoutY="13.0">
          <image>
             <Image url="@../image/gmail.png" />
          </image>
       </ImageView>
-      <JFXButton layoutX="28.0" layoutY="16.0" onAction="#btnMailBoxOnAction" prefHeight="41.0" prefWidth="58.0" style="-fx-background-radius: 6;" text="." textFill="WHITE" />
+      <JFXButton layoutX="20.0" layoutY="20.0" onAction="#btnMailBoxOnAction" prefHeight="34.0" prefWidth="52.0" style="-fx-background-radius: 6;" text="." textFill="WHITE" />
     </children>
 </AnchorPane>

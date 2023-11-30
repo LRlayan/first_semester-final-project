@@ -53,7 +53,15 @@
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
             <version>6.20.5</version>
-            </dependency>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version> <!-- Replace with the latest version available -->
+        </dependency>
+
     </dependencies>
+
 
 </project>

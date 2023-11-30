@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.gmailItemController">
+<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.GmailItemController">
    <children>
       <TableView fx:id="itemtable" layoutX="146.0" layoutY="124.0" prefHeight="310.0" prefWidth="667.0">
         <columns>
@@ -46,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </TextField>
-      <TextField fx:id="emailSend" layoutX="85.0" layoutY="490.0" prefHeight="41.0" prefWidth="360.0" promptText="     example@gmail.com" style="-fx-background-radius: 30;" styleClass="shadow2" stylesheets="@../styleSheet.css">
+      <TextField fx:id="sendEmail" layoutX="85.0" layoutY="490.0" prefHeight="41.0" prefWidth="360.0" promptText="     example@gmail.com" style="-fx-background-radius: 30;" styleClass="shadow2" stylesheets="@../styleSheet.css">
          <font>
             <Font size="17.0" />
          </font>

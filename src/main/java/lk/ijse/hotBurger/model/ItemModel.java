@@ -19,9 +19,19 @@ public class ItemModel {
        try {
            Connection connection = DbConnection.getInstance().getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement("SELECT  * FROM item");
+
            ResultSet resultSet = preparedStatement.executeQuery();
+
            while (resultSet.next()){
-               ItemDto itemDto = new ItemDto(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getDouble(4),resultSet.getDouble(5),resultSet.getString(6),resultSet.getString(7));
+               ItemDto itemDto = new ItemDto(
+                       resultSet.getInt(1),
+                       resultSet.getString(2),
+                       resultSet.getString(3),
+                       resultSet.getDouble(4),
+                       resultSet.getDouble(5),
+                       resultSet.getString(6),
+                       resultSet.getString(7)
+               );
                itemDtos.add(itemDto);
            }
        }catch (SQLException e){
@@ -60,5 +70,14 @@ public class ItemModel {
        preparedStatement.setInt(6,itemDto.getId());
 
        return preparedStatement.executeUpdate() > 0;
+    }
+
+    public boolean deleteItem(String itemCode) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "DELETE FROM item WHERE itemCode = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1,itemCode);
+
+        return preparedStatement.executeUpdate() > 0;
     }
 }

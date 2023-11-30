@@ -14,60 +14,21 @@ import java.util.List;
 
 public class CustomerModel {
 
-   /* public boolean saveCustomer(CustomerDto customerDto) throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
-
-        String sql = "INSERT INTO customer(id,firstName,lastName,address,phone) VALUES(?,?,?,?,?)";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-        preparedStatement.setInt(1,customerDto.getId());
-        preparedStatement.setString(2,customerDto.getfName());
-        preparedStatement.setString(3,customerDto.getlName());
-        preparedStatement.setString(4,customerDto.getAddressLine3());
-        preparedStatement.setString(5,customerDto.getPhone1());
-
-        boolean isSaved = preparedStatement.executeUpdate() > 0;
-
-        return isSaved;
-    }*/
-
-    public List<CustomerDto> getAllCustomer() throws SQLException {
-        Connection connection = DbConnection.getInstance().getConnection();
-        String sql = "SELECT * FROM customer";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-
-        List<CustomerDto> dtoList = new ArrayList<>();
-        while (resultSet.next()) {
-            dtoList.add(
-                    new CustomerDto(
-                            resultSet.getInt(1),
-                            resultSet.getString(2),
-                            resultSet.getString(3),
-                            resultSet.getString(4),
-                            resultSet.getString(5)
-                    )
-            );
-        }
-        return dtoList;
-    }
-
     public CustomerDto saveCustomer(CustomerDto customerDto) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
 
         String sql = "INSERT INTO customer VALUES(?,?,?,?,?)";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql , PreparedStatement.NO_GENERATED_KEYS);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql , PreparedStatement.RETURN_GENERATED_KEYS);
 
-        preparedStatement.setInt(1,customerDto.getId());
-        preparedStatement.setString(2,customerDto.getfName());
-        preparedStatement.setString(3,customerDto.getlName());
+        preparedStatement.setInt(1,0);
+        preparedStatement.setString(2,customerDto.getFName());
+        preparedStatement.setString(3,customerDto.getLName());
         preparedStatement.setString(4,customerDto.getAddress());
-        preparedStatement.setString(5,customerDto.getMobileNo());
+        preparedStatement.setString(5,customerDto.getMobile());
 
         int affectedRow = preparedStatement.executeUpdate();
         if (affectedRow > 0){
-            new Alert(Alert.AlertType.CONFIRMATION,"Added Successfully");
+            new Alert(Alert.AlertType.INFORMATION,"Customer created successfully!");
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()){
                 int generatedId = generatedKeys.getInt(1);
@@ -78,5 +39,55 @@ public class CustomerModel {
             new Alert(Alert.AlertType.ERROR,"Customer Error");
         }
         return null;
+    }
+
+    public CustomerDto dineCustomerSave(CustomerDto customerDto) throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "INSERT INTO customer VALUES(?,?,?,?,?)";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
+
+        preparedStatement.setInt(1,0);
+        preparedStatement.setString(2,customerDto.getFName());
+        preparedStatement.setString(3,customerDto.getLName());
+        preparedStatement.setString(4,"No Address");
+        preparedStatement.setString(5,customerDto.getMobile());
+
+        int affectedRow = preparedStatement.executeUpdate();
+        if (affectedRow > 0){
+            new Alert(Alert.AlertType.INFORMATION,"Customer created successfully!");
+            ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+
+            if (generatedKeys.next()){
+                int generatedId = generatedKeys.getInt(1);
+                customerDto.setId(generatedId);
+                return customerDto;
+            }
+        }else {
+            new Alert(Alert.AlertType.ERROR,"Customer Error");
+        }
+        return null;
+    }
+
+    public List<CustomerDto> getAllCustomers() throws SQLException {
+        ArrayList<CustomerDto> customerDtos = new ArrayList<>();
+        Connection connection = DbConnection.getInstance().getConnection();
+
+        String sql = "SELECT * FROM customer";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()){
+            CustomerDto customerDto = new CustomerDto(
+                    resultSet.getInt(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            );
+            customerDtos.add(customerDto);
+        }
+        return customerDtos;
     }
 }

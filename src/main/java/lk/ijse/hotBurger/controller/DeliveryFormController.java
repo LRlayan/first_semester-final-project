@@ -59,8 +59,9 @@ public class DeliveryFormController {
     @FXML
     private JFXTextArea txtAdditionalAddress;
 
+
     @FXML
-    private JFXButton btnClose;
+    private JFXButton closeButton;
 
     public DeliveryFormController() throws SQLException {
     }
@@ -75,13 +76,13 @@ public class DeliveryFormController {
 
     private AutoCompletionBinding<String> autoCompletionBinding;
 
-    private List<CustomerDto> customerDtoList = customerModel.getAllCustomer();
+    private List<CustomerDto> customerDtoList = customerModel.getAllCustomers();
 
     private Set<String> _customerDtoLis = new HashSet<>();
 
     public void initialize() throws IOException {
         customerDtoList.forEach(customerDto -> {
-            _customerDtoLis.add(customerDto.getId()+ " - " +customerDto.getfName() + " " + customerDto.getlName());
+            _customerDtoLis.add(customerDto.getId()+ " - " +customerDto.getFName() + " " + customerDto.getLName());
         });
         setCheckBoxDefaultSelected();
         searchBarAutoTextField.setVisible(false);
@@ -115,22 +116,27 @@ public class DeliveryFormController {
         autoCompletionBinding = TextFields.bindAutoCompletion(learnTextField , _customerDtoLis);
     }
     public void deliveryDetailConfirmBtnOnAction(javafx.event.ActionEvent actionEvent) {
-
-        customerDto.setId(0);
-        customerDto.setfName(txtFirstName.getText());
-        customerDto.setlName(txtLastName.getText());
-        customerDto.setAddress(txtAreaAddress.getText());
-        customerDto.setMobileNo(txtMobileNo.getText());
-        deliveryDto.setAddress( txtAdditionalAddress.getText());
-        deliveryDto.setAdditionalMobileNo(txtAdditionalMobile.getText());
+        try {
+            customerDto.setId(0);
+            customerDto.setFName(txtFirstName.getText());
+            customerDto.setLName(txtLastName.getText());
+            customerDto.setAddress(txtAreaAddress.getText());
+            customerDto.setMobile(txtMobileNo.getText());
+            deliveryDto.setAddress(txtAdditionalAddress.getText());
+            deliveryDto.setAdditionalMobileNo(txtAdditionalMobile.getText());
+            clearField();
+            new Alert(Alert.AlertType.INFORMATION,"Add customer details!").show();
+        }catch (Exception e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage());
+        }
 
     }
-
 
     @FXML
-    void deliveryWindowClose(ActionEvent event) {
-        duplicate.clickButtonCloseWindow(btnClose);
+    void closeButtonOnAction(ActionEvent event) {
+        duplicate.clickButtonCloseWindow(closeButton);
     }
+
     public void setCheckBoxDefaultSelected() {
         checkBoNewCustomer.setSelected(true);
         checkboxPrimaryAndDeliveryAddress.setSelected(true);
@@ -166,6 +172,7 @@ public class DeliveryFormController {
             txtAdditionalAddress.setVisible(true);
            lblNewAddress.setVisible(true);
         } else if (checkboxPrimaryAndDeliveryAddress.isSelected()) {
+            txtAdditionalAddress.setText(txtAreaAddress.getText());
             txtAdditionalAddress.setVisible(false);
             lblNewAddress.setVisible(false);
         }

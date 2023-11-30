@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="270.0" prefWidth="415.0" style="-fx-border-color: orange; -fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.DineInCustomerFormController">
+   <children>
+      <TextField fx:id="dineInCusLName" layoutX="60.0" layoutY="124.0" prefHeight="33.0" prefWidth="302.0" promptText="Last Name" />
+      <Label layoutX="134.0" layoutY="15.0" text="Dine In Customer">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="dineInCusFName" layoutX="60.0" layoutY="66.0" prefHeight="33.0" prefWidth="302.0" promptText="  First Name" />
+      <Label layoutX="60.0" layoutY="46.0" text="First Name" />
+      <ImageView fitHeight="41.0" fitWidth="46.0" layoutX="362.0" layoutY="6.0">
+         <image>
+            <Image url="@../image/close.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="closeButton" buttonType="RAISED" layoutX="370.0" layoutY="14.0" onAction="#dineInCloseButtonOnAction" prefHeight="25.0" prefWidth="31.0" text="." textFill="WHITE" />
+      <Label layoutX="60.0" layoutY="104.0" text="Last Name" />
+      <JFXButton layoutX="155.0" layoutY="229.0" onAction="#DineInConfirmOnAction" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #FF8328; -fx-background-radius: 10;" text="Confirm" textFill="WHITE" />
+      <TextField fx:id="dineInCusMobileNo" layoutX="60.0" layoutY="183.0" prefHeight="33.0" prefWidth="302.0" promptText="mobile No" />
+      <Label layoutX="60.0" layoutY="162.0" text="Mobile No" />
+   </children>
+</AnchorPane>

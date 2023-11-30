@@ -1,5 +1,6 @@
 package lk.ijse.hotBurger.dto;
 
+import com.jfoenix.controls.JFXButton;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -73,11 +73,11 @@
       <JFXTextArea fx:id="txtAreaAddress" layoutX="231.0" layoutY="203.0" prefHeight="87.0" prefWidth="193.0" style="-fx-background-color: FFFFFF;" styleClass="shadow" />
       <Label fx:id="lblNewAddress" layoutX="232.0" layoutY="302.0" text="New Address" />
       <TextField fx:id="learnTextField" layoutX="25.0" layoutY="465.0" prefHeight="25.0" prefWidth="32.0" visible="false" />
-      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="404.0" layoutY="15.0">
+      <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="405.0" layoutY="14.0">
          <image>
-            <Image url="@../image/CloseButton.png" />
+            <Image url="@../image/close.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnClose" layoutX="404.0" layoutY="15.0" onAction="#deliveryWindowClose" prefHeight="32.0" prefWidth="32.0" style="-fx-background-radius: 30;" text="." textFill="#ff9900" />
+      <JFXButton fx:id="closeButton" layoutX="409.0" layoutY="18.0" onAction="#closeButtonOnAction" prefHeight="25.0" prefWidth="23.0" text="." textFill="WHITE" />
    </children>
 </AnchorPane>

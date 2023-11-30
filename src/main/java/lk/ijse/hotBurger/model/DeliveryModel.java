@@ -15,16 +15,16 @@ public class DeliveryModel {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "INSERT INTO deliveryDetail VALUES(?,?,?,?)";
 
-        PreparedStatement preparedStatement = connection.prepareStatement(sql,PreparedStatement.NO_GENERATED_KEYS);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql,PreparedStatement.RETURN_GENERATED_KEYS);
 
-        preparedStatement.setInt(1,deliveryDto.getId());
+        preparedStatement.setInt(1,0);
         preparedStatement.setString(2,deliveryDto.getAddress());
         preparedStatement.setString(3,deliveryDto.getAdditionalMobileNo());
         preparedStatement.setInt(4,deliveryDto.getCustomerId());
 
         int affectedRow = preparedStatement.executeUpdate();
         if (affectedRow > 0){
-            new Alert(Alert.AlertType.CONFIRMATION,"Added Delivery Detail");
+            new Alert(Alert.AlertType.INFORMATION,"Delivery details added successfully!");
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
             if (generatedKeys.next()){
                 int generatedId = generatedKeys.getInt(1);

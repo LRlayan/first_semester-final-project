@@ -13,17 +13,13 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="customerTable" layoutX="41.0" layoutY="132.0" prefHeight="387.0" prefWidth="882.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
+      <TableView fx:id="customerTable" layoutX="112.0" layoutY="130.0" prefHeight="368.0" prefWidth="723.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
         <columns>
-          <TableColumn fx:id="customerId" prefWidth="57.66667175292969" text="id" />
-          <TableColumn fx:id="firstName" prefWidth="112.33332824707031" text="First Name" />
-            <TableColumn fx:id="lastName" prefWidth="121.66668701171875" text="Last Name" />
-            <TableColumn fx:id="addressLine01" prefWidth="133.33331298828125" text="Address Line 01" />
-            <TableColumn fx:id="addressLine02" prefWidth="128.66668701171875" text="Address Line 02" />
-            <TableColumn fx:id="addressLine03" prefWidth="130.33331298828125" text="Address Line 03" />
-            <TableColumn fx:id="phone1" prefWidth="95.6666259765625" text="Phone 1" />
-            <TableColumn fx:id="phone2" prefWidth="102.66668701171875" text="Phone 2" />
-            <TableColumn fx:id="customerId1" prefWidth="57.66667175292969" text="id" />
+          <TableColumn fx:id="customerId" prefWidth="95.33332824707031" text="id" />
+          <TableColumn fx:id="firstName" prefWidth="149.6666717529297" text="First Name" />
+            <TableColumn fx:id="lastName" prefWidth="148.66665649414062" text="Last Name" />
+            <TableColumn fx:id="address" prefWidth="157.0" text="Address" />
+            <TableColumn fx:id="mobile" prefWidth="173.33331298828125" text="Mobile" />
         </columns>
       </TableView>
    </children>

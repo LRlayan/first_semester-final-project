@@ -74,6 +74,5 @@ public class DashboardFormController implements Initializable {
 
     public void btnLogoutOnAction(ActionEvent actionEvent) throws IOException {
         duplicate.navigate("/view/adminLogin_form.fxml" , adminanchorpane);
-        //duplicate.popUpWindow("/view/logoutYesNo_form.fxml");
     }
 }
