@@ -4,27 +4,28 @@ import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
-import javafx.fxml.Initializable;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
-import lk.ijse.hotBurger.dto.DeliveryDto;
+import lk.ijse.hotBurger.db.DbConnection;
 import lk.ijse.hotBurger.dto.OrderDetailsDto;
 import lk.ijse.hotBurger.dto.OrderDto;
-import lk.ijse.hotBurger.dto.tm.OrderDetailsTm;
 import lk.ijse.hotBurger.model.CustomerModel;
 import lk.ijse.hotBurger.model.DeliveryModel;
+import lk.ijse.hotBurger.model.OrderDetailsModel;
 import lk.ijse.hotBurger.model.OrderModel;
-import static javafx.scene.input.MouseEvent.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -86,32 +87,20 @@ public class CartTableController implements Initializable {
 
     OrderDto orderDto = new OrderDto();
 
-    //private static String total;
-
+    OrderDetailsModel orderDetailsModel = new OrderDetailsModel();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setValueFactory();
         loardClickItemDetail();
         minusButtonToTable();
 
-        orderDto.setDeliveryCharge(150);
+        orderDto.setDeliveryCharge(0);
 
         order.setDate(DateTimeFormatter.ofPattern("MM-dd-yyyy", Locale.ENGLISH).format(LocalDateTime.now()));
-        lblSubTotal.setText("Rs : " + order.getSubTotal());
+
+        lblSubTotal.setText(String.valueOf(order.getSubTotal()));
         order.setSubTotal(Double.parseDouble(String.valueOf(order.getSubTotal())));
-
-        if (order.getSubTotal() > 5800) {
-
-            lblDiscount.setText("Rs : " + (order.getSubTotal() * 14 / 100));
-            order.setDiscount((order.getSubTotal() * 14 / 100));
-
-            lblTotal.setText(("Rs : " + ((order.getSubTotal()) - (order.getSubTotal() * 14 / 100) + (orderDto.getDeliveryCharge()))));
-            // total = ("Rs : " + ((order.getSubTotal()) - (order.getSubTotal() * 14/100) + (orderDto.getDeliveryCharge())));
-            order.setTotal((order.getSubTotal()) - (order.getSubTotal() * 14 / 100));
-            // order.setTotal(Double.parseDouble(total));
-        } else {
-            lblTotal.setText("Rs : " + order.getSubTotal());
-        }
+        setOrderTotalLabelsAndDto(order.getSubTotal());
     }
 
     public void setValueFactory() {
@@ -124,10 +113,7 @@ public class CartTableController implements Initializable {
     public void loardClickItemDetail() {
         if (order.getOrderItem() != null) {
             order.getOrderItem().forEach(orderDetailsDto -> {
-
-                observableList.add(
-                        orderDetailsDto
-                );
+                observableList.add(orderDetailsDto);
             });
         }
         tbl.setItems(observableList);
@@ -139,10 +125,7 @@ public class CartTableController implements Initializable {
         duplicate.popUpWindow("/view/delivery_form.fxml");
         order.setType("DELIVERY");
         order.setDeliveryCharge(150);
-        order.setTotal(order.getSubTotal() + order.getDeliveryCharge());
-        lblDeliveryCharge.setText(String.valueOf(order.getDeliveryCharge()));
-        lblTotal.setText("Rs : " + order.getTotal());
-
+        setOrderTotalLabelsAndDto(order.getSubTotal());
         selectButton++;
     }
 
@@ -152,9 +135,7 @@ public class CartTableController implements Initializable {
         duplicate.clickButtonChangeColor(btnPickUp, btnDelivery, btnDineIn);
         order.setType("PICK UP");
         order.setDeliveryCharge(0);
-        lblDeliveryCharge.setText("Rs : " + 0.00);
-        order.setTotal(order.getSubTotal() + order.getDeliveryCharge());
-        lblTotal.setText("Rs : " + order.getTotal());
+        setOrderTotalLabelsAndDto(order.getSubTotal());
     }
 
     public void clickOnDineInBtnAction(ActionEvent actionEvent) throws IOException {
@@ -164,14 +145,11 @@ public class CartTableController implements Initializable {
 
         order.setType("DINE IN");
         order.setDeliveryCharge(0);
-        lblDeliveryCharge.setText("Rs : " + 0.00);
-        order.setTotal(order.getSubTotal() + order.getDeliveryCharge());
-        lblTotal.setText("Rs : " + order.getTotal());
-
+        setOrderTotalLabelsAndDto(order.getSubTotal());
     }
 
     @FXML
-    void placeOrderOnAction(ActionEvent event) throws SQLException {
+    void placeOrderOnAction(ActionEvent event) throws SQLException, JRException {
 
         try {
             if (selectButton > 0) {
@@ -185,43 +163,71 @@ public class CartTableController implements Initializable {
                     if (DeliveryFormController.deliveryDto.getId() != 0) {
                         order.setCustomerId(DeliveryFormController.customerDto.getId());
                         orderModel.saveOrder(order);
-                        if (ManageOrderFormController.orderDto.getId() != 0) {
-                            new Alert(Alert.AlertType.INFORMATION, "Order created successfully!").show();
 
+                        if (order.getId() != 0) {
+                            orderDetails.forEach(orderDetailsDto -> {
+                                try {
+                                    orderDetailsDto.setOrderId(order.getId());
+                                    orderDetailsModel.saveOrderDetail(orderDetailsDto);
+                                } catch (SQLException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            });
+                            billGenerate(order.getId());
+                            clearOrder();
                         }
                     }
                 }
             } else if (selectButton == 0) {
                 dineInAndPickUpCustomer();
+                clearOrder();
 
             } else if (selectButton == 0) {
                 dineInAndPickUpCustomer();
+                clearOrder();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
     }
 
-    public void dineInAndPickUpCustomer() throws SQLException {
+    public void dineInAndPickUpCustomer() throws SQLException, JRException {
         customerModel.dineCustomerSave(DineInCustomerFormController.customerDto);
         if (DineInCustomerFormController.customerDto.getId() != 0) {
             order.setCustomerId(DineInCustomerFormController.customerDto.getId());
             orderModel.saveOrder(order);
+            if (order.getId() != 0) {
+                orderDetails.forEach(orderDetailsDto -> {
+                    try {
+                        orderDetailsDto.setOrderId(order.getId());
+                        orderDetailsModel.saveOrderDetail(orderDetailsDto);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+                billGenerate(order.getId());
+                clearOrder();
+                //new Alert(Alert.AlertType.INFORMATION, "Order created successfully!").show();
+            }
         }
     }
 
     private void minusButtonToTable() { //add column and change qty button
-        TableColumn<OrderDetailsDto, Void> colBtn = new TableColumn("Change Qty");
+        TableColumn<OrderDetailsDto, Void> colBtn = new TableColumn("Qty(-)  ");
         Callback<TableColumn<OrderDetailsDto, Void>, TableCell<OrderDetailsDto, Void>> cellFactory = new Callback<>() {
             @Override
             public TableCell<OrderDetailsDto, Void> call(final TableColumn<OrderDetailsDto, Void> param) {
-                final TableCell<OrderDetailsDto, Void> cell = new TableCell<OrderDetailsDto, Void>() {
+                final TableCell<OrderDetailsDto, Void> cell = new TableCell<>() {
                     private final JFXButton btn = new JFXButton(" - ");
-
                     {
                         btn.setOnAction((ActionEvent event) -> {
-
-
+                            OrderDetailsDto orderDetailsDto = getTableView().getItems().get(getIndex());
+                            if (orderDetailsDto.getQty() > 1) {
+                                orderDetailsDto.setQty(orderDetailsDto.getQty() - 1);
+                                orderDetailsDto.setTotal(orderDetailsDto.getUnitPrice() * orderDetailsDto.getQty());
+                                getTableView().refresh();
+                                changeItemValues();
+                            }
                         });
                     }
 
@@ -233,7 +239,7 @@ public class CartTableController implements Initializable {
                             setGraphic(null);
                         } else {
                             btn.setCursor(Cursor.HAND);
-                            btn.setStyle("-fx-background-color: #42c923");
+                            btn.setStyle("-fx-background-color: #e66767");
                             setGraphic(btn);
                         }
                     }
@@ -244,5 +250,65 @@ public class CartTableController implements Initializable {
 
         colBtn.setCellFactory(cellFactory);
         tbl.getColumns().add(colBtn);
+    }
+
+    private void changeItemValues() {
+        double total = 0;
+        for (OrderDetailsDto orderDetailsDto : order.getOrderItem()) {
+            total += orderDetailsDto.getTotal();
+        }
+        setOrderTotalLabelsAndDto(total);
+    }
+
+    private void setOrderTotalLabelsAndDto(double total) {
+        if (total > 5800) {
+            lblDiscount.setText(String.valueOf(total * 14 / 100));
+            order.setDiscount(total * 14 / 100);
+            lblTotal.setText(String.valueOf((((total) - (total * 14 / 100) + (order.getDeliveryCharge())))));
+            order.setTotal((((total) - (total * 14 / 100) + (order.getDeliveryCharge()))));
+        } else {
+            lblDiscount.setText("0.00");
+            lblTotal.setText(String.valueOf(total + order.getDeliveryCharge()));
+            lblSubTotal.setText(String.valueOf(total));
+            order.setDiscount(0);
+            order.setSubTotal(total);
+            order.setTotal(total + order.getDeliveryCharge());
+        }
+        lblDeliveryCharge.setText(String.valueOf(order.getDeliveryCharge()));
+    }
+
+    private void clearOrder(){
+        lblDeliveryCharge.setText(String.valueOf(0.0));
+        lblSubTotal.setText(String.valueOf(0.0));
+        lblTotal.setText(String.valueOf(0.0));
+        lblDiscount.setText(String.valueOf(0.0));
+
+        for (int i = 0; i < tbl.getItems().size(); i++){
+            tbl.getItems().clear();
+        }
+
+        order.setOrderItem(null);
+        order.setId(0);
+        order.setType(null);
+        order.setCustomerId(0);
+        order.setTotal(0);
+        order.setDiscount(0);
+        order.setDeliveryCharge(0);
+        order.setSubTotal(0);
+        order.setDate(null);
+        orderDetails.clear();
+    }
+
+    public void billGenerate(int orderId) throws JRException, SQLException {
+        HashMap parameter = new HashMap();
+        parameter.put("orderId", orderId);
+        InputStream reportsAsStream = getClass().getResourceAsStream("/reports/generateBill.jrxml");
+        JasperDesign load = JRXmlLoader.load(reportsAsStream);
+        JasperReport jasperReport1 = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport1,
+                parameter,
+                DbConnection.getInstance().getConnection()
+        );
+        JasperViewer.viewReport(jasperPrint, false);
     }
 }

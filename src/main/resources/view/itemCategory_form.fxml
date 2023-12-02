@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.scene.control.TableColumn?>
@@ -16,16 +15,11 @@
             <Font size="16.0" />
          </font>
       </TextField>
-      <JFXButton buttonType="RAISED" layoutX="737.0" layoutY="57.0" prefHeight="39.0" prefWidth="159.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="Create Category" textFill="WHITE">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </JFXButton>
-      <TableView fx:id="categoryTable" layoutX="121.0" layoutY="169.0" prefHeight="250.0" prefWidth="723.0" style="-fx-background-color: FFFFFF;">
+      <TableView fx:id="categoryTable" layoutX="65.0" layoutY="169.0" prefHeight="250.0" prefWidth="828.0" style="-fx-background-color: FFFFFF;">
         <columns>
           <TableColumn fx:id="colCategoryId" prefWidth="173.66668701171875" text="Category Id" />
-          <TableColumn fx:id="colName" prefWidth="163.0" text="Category Name" />
-            <TableColumn fx:id="colDescription" prefWidth="385.0" text="Description" />
+          <TableColumn fx:id="colName" prefWidth="256.3333435058594" text="Category Name" />
+            <TableColumn fx:id="colDescription" prefWidth="397.6666564941406" text="Description" />
         </columns>
          <stylesheets>
             <URL value="@../styleSheet.css" />

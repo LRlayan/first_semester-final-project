@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -38,10 +39,6 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></TextField>
-            <TextField fx:id="txtPassword" layoutX="86.0" layoutY="263.0" onKeyReleased="#OnEnterPassword" prefHeight="43.0" prefWidth="231.0" promptText="password">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></TextField>
             <JFXButton buttonType="RAISED" layoutX="157.0" layoutY="382.0" onAction="#ClickOnLogingBtn" prefHeight="25.0" prefWidth="93.0" style="-fx-background-color: FF8328; -fx-background-radius: 10;" text="Login" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
@@ -50,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <Label layoutX="159.0" layoutY="341.0" prefHeight="23.0" prefWidth="93.0" text="forget password?">
+            <Label layoutX="159.0" layoutY="332.0" onMouseClicked="#forgerPasswordOnAction" prefHeight="23.0" prefWidth="93.0" text="forget password?" textFill="#252525">
                <font>
                   <Font name="Gill Sans MT" size="13.0" />
                </font>
@@ -60,6 +57,7 @@
             </Label>
             <Label fx:id="lblPassword" layoutX="86.0" layoutY="310.0" prefHeight="17.0" prefWidth="234.0" textFill="RED" />
             <Label fx:id="lblUsername" layoutX="86.0" layoutY="211.0" prefHeight="17.0" prefWidth="234.0" textFill="RED" />
+            <PasswordField fx:id="txtPasswordField" layoutX="85.0" layoutY="261.0" prefHeight="43.0" prefWidth="231.0" promptText="password" style="-fx-background-color: FFFFFF; -fx-border-color: #b9b9b9; -fx-border-radius: 4;" />
          </children></AnchorPane>
       <Label layoutX="434.0" layoutY="115.0" prefHeight="40.0" prefWidth="93.0" text="Login">
          <font>

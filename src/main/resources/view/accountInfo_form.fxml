@@ -10,14 +10,14 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.AccountInfoFormController">
+<AnchorPane prefHeight="612.0" prefWidth="964.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.AccountInfoFormController">
    <children>
       <ImageView fitHeight="134.0" fitWidth="134.0" layoutX="100.0" layoutY="25.0">
          <image>
             <Image url="@../image/adminIcon.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="100.0" layoutY="369.0" prefHeight="165.0" prefWidth="769.0" style="-fx-border-color: #000000;" styleClass="shadow2" stylesheets="@../styleSheet.css">
+      <Pane layoutX="102.0" layoutY="383.0" prefHeight="165.0" prefWidth="769.0" style="-fx-border-color: #000000;" styleClass="shadow2" stylesheets="@../styleSheet.css">
          <children>
             <Label fx:id="redLblPassword" layoutX="65.0" layoutY="86.0" prefHeight="17.0" prefWidth="173.0" textFill="RED" />
             <Label fx:id="lblConfirmPassword" layoutX="564.0" layoutY="86.0" prefHeight="17.0" prefWidth="192.0" textFill="RED" />
@@ -25,15 +25,15 @@
          </children></Pane>
       <Pane layoutX="100.0" layoutY="181.0" prefHeight="165.0" prefWidth="769.0" style="-fx-border-color: #000000;" stylesheets="@../styleSheet.css">
          <children>
-            <TextField fx:id="txtConfirmPassword" layoutX="565.0" layoutY="238.0" onKeyReleased="#confirmPasswordOnAction" prefHeight="30.0" prefWidth="170.0" promptText="confirm password" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+            <TextField fx:id="txtConfirmPassword" layoutX="565.0" layoutY="250.0" onKeyReleased="#confirmPasswordOnAction" prefHeight="30.0" prefWidth="170.0" promptText="confirm password" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="40.0" layoutX="61.0" layoutY="-19.0" stroke="WHITE" strokeType="INSIDE" styleClass="transparent" width="135.0" />
             <Label layoutX="80.0" layoutY="-15.0" text="Username">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="15.0" layoutX="61.0" layoutY="179.0" stroke="WHITE" strokeType="INSIDE" width="135.0" />
-            <Label layoutX="80.0" layoutY="174.0" text="Password">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="15.0" layoutX="61.0" layoutY="191.0" stroke="WHITE" strokeType="INSIDE" width="135.0" />
+            <Label layoutX="80.0" layoutY="186.0" text="Password">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -56,29 +56,29 @@
             <TextField fx:id="txtUsername" layoutX="65.0" layoutY="48.0" onKeyTyped="#verifyUsernameOnAction" prefHeight="30.0" prefWidth="170.0" promptText="username" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
             <TextField fx:id="txtNewUsername" layoutX="315.0" layoutY="48.0" prefHeight="30.0" prefWidth="170.0" promptText="new username" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
             <TextField fx:id="txtConfirmUsername" layoutX="565.0" layoutY="48.0" onKeyReleased="#confirmUsernameOnAction" prefHeight="30.0" prefWidth="170.0" promptText="confirm username" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
-            <Label layoutX="65.0" layoutY="203.0" text="password">
+            <Label layoutX="65.0" layoutY="215.0" text="password">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="315.0" layoutY="203.0" text="new password">
+            <Label layoutX="315.0" layoutY="215.0" text="new password">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="562.0" layoutY="203.0" text="confirm password">
+            <Label layoutX="562.0" layoutY="215.0" text="confirm password">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="txtPassword" layoutX="65.0" layoutY="238.0" onKeyTyped="#verifyPasswordOnActon" prefHeight="30.0" prefWidth="170.0" promptText="password" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
-            <TextField fx:id="txtNewPassword" layoutX="315.0" layoutY="238.0" prefHeight="30.0" prefWidth="170.0" promptText="new password" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+            <TextField fx:id="txtPassword" layoutX="65.0" layoutY="250.0" onKeyTyped="#verifyPasswordOnActon" prefHeight="30.0" prefWidth="170.0" promptText="password" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
+            <TextField fx:id="txtNewPassword" layoutX="315.0" layoutY="250.0" prefHeight="30.0" prefWidth="170.0" promptText="new password" style="-fx-background-color: #EDEDED;" styleClass="shadow2" stylesheets="@../styleSheet.css" />
             <JFXButton buttonType="RAISED" layoutX="636.0" layoutY="114.0" onAction="#btnChangeUsernameOnAction" prefHeight="38.0" prefWidth="101.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="change" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="636.0" layoutY="302.0" onAction="#btnChangePasswordOnAction" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="change" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="636.0" layoutY="314.0" onAction="#btnChangePasswordOnAction" prefHeight="36.0" prefWidth="101.0" style="-fx-background-color: FF7A00; -fx-background-radius: 15;" text="change" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -107,7 +107,7 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Label alignment="CENTER_RIGHT" layoutX="590.0" layoutY="62.0" prefHeight="31.0" prefWidth="278.0" text="+94 76 5937705">
+      <Label alignment="CENTER_RIGHT" layoutX="590.0" layoutY="62.0" prefHeight="31.0" prefWidth="278.0" style="-fx-background-radius: 30; -fx-background-color: FFFFFF;" text="+94 76 5937705">
          <font>
             <Font size="16.0" />
          </font>

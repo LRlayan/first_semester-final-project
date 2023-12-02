@@ -26,18 +26,18 @@
                         <Font name="Bell MT Bold" size="31.0" />
                     </font>
                 </Label>
-                <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="18.0" layoutY="7.0">
+                <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="6.0" layoutY="7.0">
                     <image>
                         <Image url="@../image/basket.png" />
                     </image>
                 </ImageView>
-                <JFXButton buttonType="RAISED" layoutX="16.0" layoutY="3.0" prefHeight="52.0" prefWidth="52.0" style="-fx-border-radius: 40;" text="." textFill="#ff9500" />
+                <JFXButton buttonType="RAISED" layoutX="3.0" layoutY="3.0" prefHeight="52.0" prefWidth="52.0" style="-fx-border-radius: 40;" text="." textFill="#ff9500" />
             <AnchorPane fx:id="orderAnchorPane" layoutX="1.0" layoutY="55.0" prefHeight="569.0" prefWidth="448.0" style="-fx-background-color: FFFFFF;" />
             </children>
         </AnchorPane>
-        <Label layoutX="1263.0" layoutY="19.0" onMouseClicked="#cashierLogoutOnAction" text="Logout" textFill="WHITE">
+        <Label layoutX="1268.0" layoutY="20.0" onMouseClicked="#cashierLogoutOnAction" text="Logout" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="23.0" />
+                <Font name="System Bold" size="19.0" />
             </font>
         </Label>
         <AnchorPane layoutX="14.0" layoutY="100.0" prefHeight="617.0" prefWidth="204.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
@@ -55,7 +55,7 @@
                             </font>
                         </Label>
                         <JFXButton layoutX="-1.0" layoutY="-7.0" prefHeight="103.0" prefWidth="180.0" text="." textFill="WHITE" />
-                        <JFXButton layoutX="9.0" layoutY="3.0" onAction="#onBurgerClick" prefHeight="103.0" prefWidth="180.0" text="." textFill="WHITE" />
+                        <JFXButton layoutY="-2.0" onAction="#onBurgerClick" prefHeight="99.0" prefWidth="180.0" text="." />
                     </children>
                 </Pane>
                 <Pane layoutX="12.0" layoutY="110.0" prefHeight="95.0" prefWidth="180.0" style="-fx-background-color: #6B6B6B; -fx-background-radius: 10;">
@@ -65,16 +65,16 @@
                                 <Font name="System Bold" size="21.0" />
                             </font>
                         </Label>
-                        <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="-1.0" onAction="#onComboBoxClick" prefHeight="95.0" prefWidth="180.0" text="." textFill="WHITE">
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </JFXButton>
                         <ImageView fitHeight="72.0" fitWidth="91.0" layoutX="42.0" layoutY="22.0">
                             <image>
                                 <Image url="@../image/CrunchyChickenMeal.png" />
                             </image>
                         </ImageView>
+                        <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="-1.0" onAction="#onComboBoxClick" prefHeight="95.0" prefWidth="180.0" text=".">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </JFXButton>
                     </children>
                 </Pane>
                 <Pane layoutX="12.0" layoutY="211.0" prefHeight="95.0" prefWidth="180.0" style="-fx-background-color: #6B6B6B; -fx-background-radius: 10;">
@@ -84,25 +84,20 @@
                                 <Font name="System Bold" size="21.0" />
                             </font>
                         </Label>
-                        <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="2.0" onAction="#onSnacksClick" prefHeight="95.0" prefWidth="180.0" text="." textFill="WHITE">
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </JFXButton>
                         <ImageView fitHeight="53.0" fitWidth="59.0" layoutX="59.0" layoutY="31.0">
                             <image>
                                 <Image url="@../image/SnacksCategory.png" />
                             </image>
                         </ImageView>
-                    </children>
-                </Pane>
-                <Pane layoutX="12.0" layoutY="312.0" prefHeight="95.0" prefWidth="180.0" style="-fx-background-color: #6B6B6B; -fx-background-radius: 10;">
-                    <children>
-                        <JFXButton buttonType="RAISED" onAction="#onSaucesClick" prefHeight="95.0" prefWidth="180.0" text="." textFill="WHITE">
+                        <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="2.0" onAction="#onSnacksClick" prefHeight="95.0" prefWidth="180.0" text="." textFill="#514040">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </JFXButton>
+                    </children>
+                </Pane>
+                <Pane layoutX="12.0" layoutY="312.0" prefHeight="95.0" prefWidth="180.0" style="-fx-background-color: #6B6B6B; -fx-background-radius: 10;">
+                    <children>
                         <Label layoutX="56.0" layoutY="-9.0" prefHeight="46.0" prefWidth="76.0" text="Sauces" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="21.0" />
@@ -113,15 +108,15 @@
                                 <Image url="@../image/ketchup.png" />
                             </image>
                         </ImageView>
-                    </children>
-                </Pane>
-                <Pane layoutX="12.0" layoutY="413.0" prefHeight="95.0" prefWidth="180.0" style="-fx-background-color: #6B6B6B; -fx-background-radius: 10;">
-                    <children>
-                        <JFXButton buttonType="RAISED" onAction="#onDrinksClick" prefHeight="95.0" prefWidth="180.0" text="." textFill="WHITE">
+                        <JFXButton buttonType="RAISED" onAction="#onSaucesClick" prefHeight="95.0" prefWidth="180.0" text=".">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </JFXButton>
+                    </children>
+                </Pane>
+                <Pane layoutX="12.0" layoutY="413.0" prefHeight="95.0" prefWidth="180.0" style="-fx-background-color: #6B6B6B; -fx-background-radius: 10;">
+                    <children>
                         <Label layoutX="58.0" layoutY="-9.0" prefHeight="46.0" prefWidth="74.0" text="Drinks" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="21.0" />
@@ -132,6 +127,11 @@
                                 <Image url="@../image/DrinksCategory.png" />
                             </image>
                         </ImageView>
+                        <JFXButton buttonType="RAISED" onAction="#onDrinksClick" prefHeight="95.0" prefWidth="180.0" text=".">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </JFXButton>
                     </children>
                 </Pane>
                 <Pane layoutX="12.0" layoutY="514.0" prefHeight="95.0" prefWidth="180.0" style="-fx-background-color: #6B6B6B; -fx-background-radius: 10;">
@@ -146,7 +146,7 @@
                                 <Image url="@../image/offersCategory.png" />
                             </image>
                         </ImageView>
-                        <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="-5.0" onAction="#onOfferseClick" prefHeight="95.0" prefWidth="180.0" text=".">
+                        <JFXButton buttonType="RAISED" layoutX="1.0" onAction="#onOfferseClick" prefHeight="95.0" prefWidth="180.0" text=".">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -155,9 +155,9 @@
                 </Pane>
             </children>
         </AnchorPane>
-      <JFXButton layoutX="1154.0" layoutY="21.0" onAction="#reportsOnAction" text="Reports">
+      <JFXButton layoutX="1130.0" layoutY="18.0" onAction="#reportsOnAction" text="Burgers Menu" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
       <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="21.0" layoutY="13.0">

@@ -21,61 +21,61 @@
             <Image url="@../image/ketchup.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="54.0" layoutY="189.0">
-         <image>
-            <Image url="@../image/BBQSauce.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="59.0" layoutY="242.0">
-         <image>
-            <Image url="@../image/tomato.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="42.0" fitWidth="57.0" layoutX="60.0" layoutY="108.0">
          <image>
             <Image url="@../image/Mayonnaise.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="49.0" layoutX="63.0" layoutY="159.0">
-         <image>
-            <Image url="@../image/sweetSourSauce.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="127.0" layoutY="77.0" text="Ketchup">
+      <Label layoutX="137.0" layoutY="77.0" text="Ketchup">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="127.0" layoutY="118.0" text="Mayonnaise">
+      <Label layoutX="137.0" layoutY="118.0" text="Mayonnaise">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="127.0" layoutY="165.0" text="Sweet &amp; Sour Sauce">
+      <Label layoutX="137.0" layoutY="165.0" text="OniOns">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="127.0" layoutY="213.0" text="BBQ Sauce">
+      <Label layoutX="137.0" layoutY="213.0" text="Tomato">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="127.0" layoutY="259.0" text="Tomato Sauce">
+      <Label layoutX="137.0" layoutY="259.0" text="Lettuce">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <JFXCheckBox fx:id="checkboxKetchup" layoutX="16.0" layoutY="72.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
       <JFXCheckBox fx:id="checkBoxMayonnaise" layoutX="16.0" layoutY="119.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
-      <JFXCheckBox fx:id="checkboxSweet" layoutX="16.0" layoutY="166.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
-      <JFXCheckBox fx:id="checkboxBBQ" layoutX="16.0" layoutY="213.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
-      <JFXCheckBox fx:id="checkboxTomato" layoutX="16.0" layoutY="261.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
-      <JFXButton layoutX="78.0" layoutY="315.0" onAction="#btnConfirmClickOnAction" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #FF8328; -fx-background-radius: 6;" text="Confirm" textFill="WHITE" />
+      <JFXCheckBox fx:id="checkInoins" layoutX="16.0" layoutY="166.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
+      <JFXCheckBox fx:id="checkTomato" layoutX="16.0" layoutY="213.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
+      <JFXCheckBox fx:id="checkLettuce" layoutX="16.0" layoutY="261.0" prefHeight="18.0" prefWidth="15.0" text="." textFill="WHITE" />
+      <JFXButton layoutX="85.0" layoutY="315.0" onAction="#btnConfirmClickOnAction" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #FF8328; -fx-background-radius: 6;" text="Confirm" textFill="WHITE" />
       <Label layoutX="16.0" layoutY="20.0" text="Remove Ingrediants">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
+      <ImageView fitHeight="42.0" fitWidth="57.0" layoutX="60.0" layoutY="248.0">
+         <image>
+            <Image url="@../image/lettuceRemove.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="48.0" fitWidth="57.0" layoutX="57.0" layoutY="153.0">
+         <image>
+            <Image url="@../image/onions.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="60.0" layoutY="196.0">
+         <image>
+            <Image url="@../image/tomatoRemove.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

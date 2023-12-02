@@ -10,11 +10,26 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class OrderDetailsDto {
     int id;
+    String size;
+    int qty;
+    double total;
+    int orderId;
+    double unitCost;
     String itemCode;
     String name;
     double unitPrice;
-    int qty;
-    double Total;
+
+    public OrderDetailsDto(int id, String itemCode, String name, double unitPrice, int qty, double total) {
+        this.id = id;
+        this.itemCode = itemCode;
+        this.name = name;
+        this.unitPrice = unitPrice;
+        this.qty = qty;
+        this.total = total;
+    }
+
+
 }

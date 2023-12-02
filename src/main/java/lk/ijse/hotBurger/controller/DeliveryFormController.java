@@ -48,9 +48,6 @@ public class DeliveryFormController {
     private TextField searchBarAutoTextField;
 
     @FXML
-    private TextField learnTextField;
-
-    @FXML
     private TextField txtMobileNo;
 
     @FXML
@@ -74,49 +71,50 @@ public class DeliveryFormController {
 
     static DeliveryDto deliveryDto = new DeliveryDto();
 
-    private AutoCompletionBinding<String> autoCompletionBinding;
-
     private List<CustomerDto> customerDtoList = customerModel.getAllCustomers();
 
     private Set<String> _customerDtoLis = new HashSet<>();
 
     public void initialize() throws IOException {
-        customerDtoList.forEach(customerDto -> {
-            _customerDtoLis.add(customerDto.getId()+ " - " +customerDto.getFName() + " " + customerDto.getLName());
-        });
+
+        searchBar();
+
         setCheckBoxDefaultSelected();
         searchBarAutoTextField.setVisible(false);
         txtAdditionalAddress.setVisible(false);
         lblNewAddress.setVisible(false);
 
+    }
 
-        TextFields.bindAutoCompletion(searchBarAutoTextField,_customerDtoLis);
-        autoCompletionBinding = TextFields.bindAutoCompletion( learnTextField,_customerDtoLis);
-        learnTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                switch (keyEvent.getCode()){
-                    case ENTER:
-                    autoCompletionLearnword(learnTextField.getText().trim());
-                        break;
-                    default:
-                        break;
-                }
-            }
+    public void searchBar(){
+        customerDtoList.forEach(customerDto -> {
+            _customerDtoLis.add( customerDto.getMobile());
         });
+
+        TextFields.bindAutoCompletion(searchBarAutoTextField, _customerDtoLis);
+
     }
 
-    private void autoCompletionLearnword(String newWord){
-        System.out.println(customerDtoList);
-        _customerDtoLis.add(newWord);
+    private void setTextFieldSearchBarDetail(){
+        String mobileSearch = searchBarAutoTextField.getText();
 
-        if (autoCompletionBinding != null){
-            autoCompletionBinding.dispose();
+        for (int i = 0; i < customerDtoList.size(); i++){
+            if (mobileSearch.equals(customerDtoList.get(i).getMobile())){
+                txtFirstName.setText(customerDtoList.get(i).getFName());
+                txtLastName.setText(customerDtoList.get(i).getLName());
+                txtAreaAddress.setText(customerDtoList.get(i).getAddress());
+                txtMobileNo.setText(customerDtoList.get(i).getMobile());
+            }
         }
-        autoCompletionBinding = TextFields.bindAutoCompletion(learnTextField , _customerDtoLis);
     }
+
+    @FXML
+    void searchbarOnAction(ActionEvent event) {
+        setTextFieldSearchBarDetail();
+    }
+
     public void deliveryDetailConfirmBtnOnAction(javafx.event.ActionEvent actionEvent) {
-        try {
+
             customerDto.setId(0);
             customerDto.setFName(txtFirstName.getText());
             customerDto.setLName(txtLastName.getText());
@@ -124,12 +122,14 @@ public class DeliveryFormController {
             customerDto.setMobile(txtMobileNo.getText());
             deliveryDto.setAddress(txtAdditionalAddress.getText());
             deliveryDto.setAdditionalMobileNo(txtAdditionalMobile.getText());
-            clearField();
-            new Alert(Alert.AlertType.INFORMATION,"Add customer details!").show();
-        }catch (Exception e){
-            new Alert(Alert.AlertType.ERROR,e.getMessage());
-        }
 
+            if (!txtFirstName.getText().isEmpty() && !txtLastName.getText().isEmpty() && !txtMobileNo.getText().isEmpty() && !txtAreaAddress.getText().isEmpty()){
+                new Alert(Alert.AlertType.INFORMATION,"Customer delivery detail added successfully!").show();
+                duplicate.clickButtonCloseWindow(btnConfirm);
+                clearField();
+            }else {
+                new Alert(Alert.AlertType.INFORMATION,"Please input customer delivery details!").show();
+            }
     }
 
     @FXML
@@ -151,13 +151,15 @@ public class DeliveryFormController {
 
     public void newCustomerCheckBoxOnAction(MouseEvent mouseEvent) throws IOException {
         if (!checkBoNewCustomer.isSelected()){
+            clearField();
             searchBarAutoTextField.setVisible(true);
-           txtFirstName.setEditable(false);
-           txtLastName.setEditable(false);
-           txtMobileNo.setEditable(false);
-           txtAreaAddress.setEditable(false);
+            txtFirstName.setEditable(false);
+            txtLastName.setEditable(false);
+            txtMobileNo.setEditable(false);
+            txtAreaAddress.setEditable(false);
 
         }else if(checkBoNewCustomer.isSelected()){
+            clearField();
             searchBarAutoTextField.setVisible(false);
             txtFirstName.setEditable(true);
             txtLastName.setEditable(true);

@@ -3,7 +3,6 @@ package lk.ijse.hotBurger.model;
 import lk.ijse.hotBurger.db.DbConnection;
 import lk.ijse.hotBurger.dto.OrderDto;
 
-import java.awt.image.DataBuffer;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,5 +58,38 @@ public class OrderModel {
             orders.add(orderDto);
         }
         return orders;
+    }
+
+    public OrderDto totalSalesAmount() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "SELECT SUM(total) FROM orders";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        OrderDto orderDtos = new OrderDto();
+        while (resultSet.next()){
+           orderDtos.setTotal(resultSet.getDouble(1));
+        }
+        return orderDtos;
+    }
+
+    public int totalSales() throws SQLException {
+        int totalSales = 0;
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "SELECT COUNT(id) FROM orders";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        OrderDto orderDto = new OrderDto();
+        while (resultSet.next()){
+           totalSales = resultSet.getInt(1);
+        }
+        return totalSales;
+    }
+
+    public OrderDto profit() throws SQLException {
+        Connection connection = DbConnection.getInstance().getConnection();
+        String sql = "";
+        return null;
     }
 }

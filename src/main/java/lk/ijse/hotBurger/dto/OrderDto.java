@@ -33,4 +33,8 @@ public class OrderDto {
         this.customerId = customerId;
         this.type = type;
     }
+
+    public OrderDto(double total) {
+        this.total = total;
+    }
 }

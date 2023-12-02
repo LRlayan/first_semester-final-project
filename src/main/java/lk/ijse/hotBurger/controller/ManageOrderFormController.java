@@ -2,11 +2,12 @@ package lk.ijse.hotBurger.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.hotBurger.dto.ItemDto;
 import lk.ijse.hotBurger.dto.OrderDto;
@@ -47,6 +48,19 @@ public class ManageOrderFormController implements Initializable {
 
     @FXML
     private TableView<OrderTm> orderTable;
+
+
+    @FXML
+    private Label lblProfit;
+
+    @FXML
+    private Label lblTotalAmount;
+
+    @FXML
+    private Label lblTotalSale;
+
+    @FXML
+    private TextField orderSearch;
 
     static OrderDto orderDto = new OrderDto();
 
@@ -90,5 +104,50 @@ public class ManageOrderFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         loadAllOrders();
         setCellValueFactory();
+        setTextLabelSales();
+        orderSearch();
+    }
+
+    public void setTextLabelSales(){
+        try{
+            OrderDto orderDto = orderModel.totalSalesAmount();
+            lblTotalAmount.setText("Rs . " + orderDto.getTotal());
+
+            int totalSales = orderModel.totalSales();
+            lblTotalSale.setText(String.valueOf(totalSales));
+
+            OrderDto orderDto3 = orderModel.profit();
+            lblProfit.setText("Rs . " + 0.00);
+        }catch (SQLException e){
+            new Alert(Alert.AlertType.ERROR,e.getMessage());
+        }
+    }
+
+    public void orderSearch(){
+        FilteredList<OrderTm> filteredList = new FilteredList<>(obList, b -> true);
+        orderSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(orderDto -> {
+                if (newValue == null || newValue.isEmpty() || newValue.isBlank()) {
+                    return true;
+                }
+                String searchKeyword = newValue.toLowerCase();
+
+                String orderType = orderDto.getType();
+                String date = orderDto.getDate();
+                int orderId = orderDto.getId();
+
+                if (orderType != null && orderType.toLowerCase().contains(searchKeyword)
+                        || date != null && date.toLowerCase().contains(searchKeyword)
+                        || orderId != 0 && String.valueOf(orderId) == searchKeyword) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+        });
+
+        SortedList<OrderTm> sortedData = new SortedList<>(filteredList);
+        sortedData.comparatorProperty().bind(orderTable.comparatorProperty());
+        orderTable.setItems(sortedData);
     }
 }

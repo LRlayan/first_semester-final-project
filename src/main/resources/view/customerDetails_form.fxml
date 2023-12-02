@@ -6,20 +6,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.CustomerDetailsFormController">
+<AnchorPane prefHeight="612.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.CustomerDetailsFormController">
    <children>
-      <Label layoutX="71.0" layoutY="59.0" text="Customer Delivery Information">
+      <Label layoutX="71.0" layoutY="48.0" text="Customer Delivery Information">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="customerTable" layoutX="112.0" layoutY="130.0" prefHeight="368.0" prefWidth="723.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
+      <TableView fx:id="customerTable" layoutX="65.0" layoutY="137.0" prefHeight="413.0" prefWidth="840.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
         <columns>
           <TableColumn fx:id="customerId" prefWidth="95.33332824707031" text="id" />
-          <TableColumn fx:id="firstName" prefWidth="149.6666717529297" text="First Name" />
-            <TableColumn fx:id="lastName" prefWidth="148.66665649414062" text="Last Name" />
-            <TableColumn fx:id="address" prefWidth="157.0" text="Address" />
-            <TableColumn fx:id="mobile" prefWidth="173.33331298828125" text="Mobile" />
+          <TableColumn fx:id="firstName" prefWidth="186.0" text="First Name" />
+            <TableColumn fx:id="lastName" prefWidth="181.0" text="Last Name" />
+            <TableColumn fx:id="address" prefWidth="208.0" text="Address" />
+            <TableColumn fx:id="mobile" prefWidth="169.33331298828125" text="Mobile" />
         </columns>
       </TableView>
    </children>

@@ -1,4 +1,5 @@
 
+
 CREATE DATABASE hotBurger;
 
 USE hotBurger;
@@ -131,15 +132,18 @@ CREATE TABLE orderDetail(
              size VARCHAR(20) NOT NULL,
              quantity INT NOT NULL,
              price DECIMAL(10,2) NOT NULL,
-             toppingsId INT NOT NULL,
              orderId INT NOT NULL,
              cost DECIMAL(10,2) NOT NULL,
              itemCode VARCHAR(50) NOT NULL,
-             CONSTRAINT FOREIGN KEY (toppingsId) REFERENCES toppings(id) ON DELETE CASCADE ON UPDATE CASCADE,
+             itemName VARCHAR(50) NOT NULL,
              CONSTRAINT FOREIGN KEY (orderId) REFERENCES orders(id) ON DELETE CASCADE ON UPDATE CASCADE,
              CONSTRAINT FOREIGN KEY (itemCode) REFERENCES item(itemCode) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+/*
+  toppingsId INT NOT NULL,
+   CONSTRAINT FOREIGN KEY (toppingsId) REFERENCES toppings(id) ON DELETE CASCADE ON UPDATE CASCADE,
+ */
 
 CREATE TABLE toppingsSalesDetail(
             qty INT NOT NULL,

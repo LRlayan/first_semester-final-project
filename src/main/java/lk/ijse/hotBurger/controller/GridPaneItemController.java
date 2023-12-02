@@ -28,7 +28,6 @@ import static java.lang.Integer.parseInt;
 
 public class GridPaneItemController implements Initializable {
     public static AnchorPane ancpane;
-
     public static int x;
 
     public static int categoryId;
@@ -62,23 +61,7 @@ public class GridPaneItemController implements Initializable {
 
     @FXML
     void allItemButtonOnAction(ActionEvent event) throws IOException, SQLException {
-       /* FXMLLoader cashierWork = new FXMLLoader(getClass().getResource("/view/CashierWork_form.fxml"));
-        Parent cashierWorkRoot = cashierWork.load();
-
-        FXMLLoader orderPane = new FXMLLoader(getClass().getResource("/view/orderPane_form.fxml"));
-        Parent orderPaneRoot = orderPane.load();
-
-        cashierWorkFormController = cashierWork.getController();
-
-        if (cashierWorkFormController.orderAnchorPane != null) {
-            cashierWorkFormController.orderAnchorPane.setVisible(false);
-            cashierWorkFormController.orderAnchorPane.getChildren().removeAll();
-            cashierWorkFormController.orderAnchorPane.getChildren().setAll(orderPaneRoot);
-        } else {
-            System.out.println("orderAnchorPane is null");
-        }*/
         getClickItemDetails();
-
     }
 
     public void getClickItemDetails() {
@@ -92,7 +75,7 @@ public class GridPaneItemController implements Initializable {
                     if (itemDto1.getItemCode() == first.get().getItemCode()) {
                         itemDto1.setQty(itemDto1.getQty() + 1);
                         itemDto1.setTotal(itemDto1.getQty() * itemDto1.getUnitPrice());
-                        CartTableController.order.setSubTotal(CartTableController.order.getSubTotal() + itemDto1.getTotal());
+                        CartTableController.order.setSubTotal(CartTableController.order.getSubTotal() + itemDto1.getUnitPrice());
                         isAlreadyAdded = true;
                     }
                 }

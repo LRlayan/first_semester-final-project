@@ -20,15 +20,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <TableView fx:id="itemtable" layoutX="66.0" layoutY="124.0" prefHeight="379.0" prefWidth="840.0">
+      <TableView fx:id="itemtable" layoutX="66.0" layoutY="124.0" prefHeight="379.0" prefWidth="832.0">
         <columns>
           <TableColumn fx:id="colItemCode" prefWidth="110.66667175292969" text="Item Code" />
-          <TableColumn fx:id="colItemName" prefWidth="226.0" text="Name" />
-            <TableColumn fx:id="colItemPrice" prefWidth="116.0" text="Unit Price" />
-            <TableColumn fx:id="colItemCost" prefWidth="112.0" text="Unit Cost" />
-            <TableColumn fx:id="colItemCategoryId" prefWidth="101.0" text="Category Id" />
-            <TableColumn fx:id="colDelete" prefWidth="173.0" />
-            <TableColumn fx:id="colUpdate" prefWidth="173.0" />
+          <TableColumn fx:id="colItemName" prefWidth="256.0" text="Name" />
+            <TableColumn fx:id="colItemPrice" prefWidth="121.0" text="Unit Price" />
+            <TableColumn fx:id="colItemCost" prefWidth="127.0" text="Unit Cost" />
+            <TableColumn fx:id="colItemCategoryId" prefWidth="77.0" text="Category Id" />
+            <TableColumn fx:id="colDelete" prefWidth="72.0" />
+            <TableColumn fx:id="colUpdate" prefWidth="68.0" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -39,8 +39,6 @@
          </stylesheets>
          <styleClass>
             <String fx:value="shadow2" />
-            <String fx:value="scrollPane" />
-            <String fx:value="column-header" />
             <String fx:value="table-row-cell" />
             <String fx:value="column-header-background" />
          </styleClass>

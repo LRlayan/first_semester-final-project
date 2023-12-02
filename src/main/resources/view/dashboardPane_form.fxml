@@ -11,7 +11,24 @@
    <children>
       <Pane layoutX="644.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css" />
       <Pane layoutX="357.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css" />
-      <Pane layoutX="67.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css" />
+      <Pane layoutX="67.0" layoutY="336.0" prefHeight="160.0" prefWidth="254.0" style="-fx-background-color: EDEDED; -fx-background-radius: 20;" styleClass="shadow" stylesheets="@../styleSheet.css">
+         <children>
+            <Label fx:id="lblTotalSales" alignment="CENTER" layoutX="18.0" layoutY="34.0" prefHeight="59.0" prefWidth="217.0" textFill="#ff7a00">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblProfit" alignment="CENTER" layoutX="596.0" layoutY="34.0" prefHeight="59.0" prefWidth="217.0" textFill="#ff7a00">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalSalesAmount" alignment="CENTER" layoutX="308.0" layoutY="34.0" prefHeight="59.0" prefWidth="217.0" textFill="#ff7a00">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+         </children></Pane>
       <Label layoutX="66.0" layoutY="38.0" text="Welcome">
          <font>
             <Font name="Calibri Bold" size="43.0" />

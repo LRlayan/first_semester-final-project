@@ -20,6 +20,7 @@ public class ItemModel {
            Connection connection = DbConnection.getInstance().getConnection();
            PreparedStatement preparedStatement = connection.prepareStatement("SELECT  * FROM item");
 
+
            ResultSet resultSet = preparedStatement.executeQuery();
 
            while (resultSet.next()){

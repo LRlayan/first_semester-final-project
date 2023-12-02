@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
@@ -13,10 +12,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="558.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageOrderFormController">
+<AnchorPane prefHeight="612.0" prefWidth="964.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.ManageOrderFormController">
     <children>
-        <DatePicker layoutX="456.0" layoutY="59.0" prefHeight="33.0" prefWidth="207.0" promptText="select date" style="-fx-background-color: FFFFFF;" />
-        <JFXComboBox focusColor="#1b3990" layoutX="694.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="207.0" promptText="order type" unFocusColor="#ff9000">
+        <DatePicker layoutX="68.0" layoutY="120.0" prefHeight="33.0" prefWidth="207.0" promptText="select date" style="-fx-background-color: FFFFFF;" />
+        <JFXComboBox focusColor="#1b3990" layoutX="377.0" layoutY="121.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="207.0" promptText="order type" unFocusColor="#ff9000">
             <opaqueInsets>
                 <Insets />
             </opaqueInsets>
@@ -24,20 +23,12 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXComboBox>
-        <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="296.0" layoutY="54.0" prefHeight="40.0" prefWidth="114.0" style="-fx-background-color: FF7A00; -fx-background-radius: 40;" text="Search" textAlignment="RIGHT" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="11.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </JFXButton>
-        <TextField layoutX="65.0" layoutY="54.0" prefHeight="40.0" prefWidth="265.0" promptText="      search item" style="-fx-background-radius: 40;">
+        <TextField fx:id="orderSearch" layoutX="65.0" layoutY="54.0" prefHeight="40.0" prefWidth="612.0" promptText="      search item" style="-fx-background-radius: 40;">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </TextField>
-        <TableView fx:id="orderTable" layoutX="62.0" layoutY="285.0" prefHeight="252.0" prefWidth="840.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
+        <TableView fx:id="orderTable" layoutX="62.0" layoutY="329.0" prefHeight="256.0" prefWidth="840.0" styleClass="table-row-cell" stylesheets="@../tableStyleSheet.css">
             <columns>
                 <TableColumn fx:id="colOrderId" prefWidth="92.33332824707031" text="Order Id" />
                 <TableColumn fx:id="colDate" prefWidth="114.33334350585938" text="Date" />
@@ -49,14 +40,14 @@
             <TableColumn fx:id="colPrice" prefWidth="127.0" text="Price" />
             </columns>
         </TableView>
-      <Pane layoutX="63.0" layoutY="129.0" prefHeight="132.0" prefWidth="838.0" style="-fx-background-radius: 30; -fx-background-color: FFE0C3;">
+      <Pane layoutX="63.0" layoutY="172.0" prefHeight="132.0" prefWidth="838.0" style="-fx-background-radius: 30; -fx-background-color: FFE0C3;">
          <children>
             <Label layoutX="42.0" layoutY="88.0" text="total sales" textFill="#8d8d8d">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="272.0" layoutY="88.0" text="total amount" textFill="#8d8d8d">
+            <Label layoutX="323.0" layoutY="88.0" text="total amount" textFill="#8d8d8d">
                <font>
                   <Font size="18.0" />
                </font>
@@ -69,6 +60,21 @@
             <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="31.0" prefHeight="49.0" prefWidth="60.0" text="#" textFill="#ff7a00">
                <font>
                   <Font name="System Bold" size="33.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalSale" alignment="CENTER" layoutX="36.0" layoutY="34.0" prefHeight="40.0" prefWidth="60.0" textFill="#ff7a00">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTotalAmount" alignment="CENTER_RIGHT" layoutX="196.0" layoutY="34.0" prefHeight="46.0" prefWidth="230.0" textFill="#ff7a00">
+               <font>
+                  <Font name="System Bold" size="31.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblProfit" alignment="CENTER_RIGHT" layoutX="647.0" layoutY="34.0" prefHeight="46.0" prefWidth="159.0" textFill="#ff7a00">
+               <font>
+                  <Font name="System Bold" size="31.0" />
                </font>
             </Label>
          </children>

@@ -31,13 +31,12 @@ public class AddNewItemController {
     private JFXButton btnCreate;
 
     DuplicateMethodController duplicate = new DuplicateMethodController();
-    CustomerModel customerModel = new CustomerModel();
 
     public void createBtnOnAction(ActionEvent actionEvent) {
         String code = txtItemCode.getText();
         String name = txtItemName.getText();
 
-        boolean matches = Pattern.matches("\\S+", name);
+        boolean matches = Pattern.matches("\\S+\\s+\\S+", name);
 
         if (matches){
             double unitPrice = Double.parseDouble(txtUnitPrice.getText());

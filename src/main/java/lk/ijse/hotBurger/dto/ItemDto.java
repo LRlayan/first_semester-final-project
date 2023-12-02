@@ -17,7 +17,8 @@ public class ItemDto {
     private String  categoryId;
     private String image;
 
-    public ItemDto(String  categoryId, String itemCode, String itemName, double unitPrice, double unitCost) {
+    public ItemDto(String  categoryId, String itemCode, String itemName, double unitPrice, double unitCost, int id) {
+        this.id = id;
         this.categoryId = categoryId;
         this.itemCode = itemCode;
         this.name = itemName;

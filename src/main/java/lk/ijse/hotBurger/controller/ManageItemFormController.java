@@ -7,14 +7,20 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.hotBurger.dto.ItemDto;
 import lk.ijse.hotBurger.dto.tm.ItemTm;
 import lk.ijse.hotBurger.model.ItemModel;
@@ -23,6 +29,8 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -49,9 +57,6 @@ public class ManageItemFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colItemPrice;
-
-    @FXML
-    private TableColumn<?, ?> colUpdateDelete;
 
     @FXML
     private TableView<ItemTm> itemtable;
@@ -104,6 +109,7 @@ public class ManageItemFormController implements Initializable {
                         new JFXButton("Delete")
                 ));
             }
+
             itemtable.setItems(observableList);
 
         } catch (HeadlessException e) {
@@ -117,6 +123,7 @@ public class ManageItemFormController implements Initializable {
             observableList.get(i).getUpdate().setBackground(Background.fill(Color.GREEN));
             observableList.get(i).getUpdate().setAlignment(Pos.CENTER);
 
+            int id = observableList.get(i).getId();
             String name = observableList.get(i).getName();
             String categoryId = observableList.get(i).getCategoryId();
             String itemCode = observableList.get(i).getItemCode();
@@ -125,6 +132,7 @@ public class ManageItemFormController implements Initializable {
 
             observableList.get(i).getUpdate().setOnAction(event -> {
 
+            UpdateItemPopWindowController.id = id;
             UpdateItemPopWindowController.name = name;
             UpdateItemPopWindowController.categoryId = categoryId;
             UpdateItemPopWindowController.itemCode = itemCode;
@@ -133,6 +141,8 @@ public class ManageItemFormController implements Initializable {
 
                 try {
                     duplicate.popUpWindow("/view/updateItemPopWindow.fxml");
+                    itemtable.refresh();
+                    loadAllItem();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -142,20 +152,17 @@ public class ManageItemFormController implements Initializable {
                 ButtonType yes = new ButtonType("Yes" , ButtonBar.ButtonData.OK_DONE);
                 ButtonType no = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
 
-                Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION,"Are you sure delete item!",yes,no).showAndWait();
-
-                itemtable.getSelectionModel().selectedItemProperty().addListener((observable , oldValue , newValue ) -> {
-                    if (type.orElse(no) == yes) {
-                        deleteDate(newValue);
-                        itemtable.refresh();
-                    }
-                });
+                Optional<ButtonType> type = new Alert(Alert.AlertType.CONFIRMATION,"Are you sure delete item!",yes,no).showAndWait();
+                if (type.get().getText() == "Yes"){
+                    deleteItemData(itemCode);
+                }
+                itemtable.refresh();
+                loadAllItem();
             });
         }
     }
 
-    private void deleteDate(ItemTm row){
-        String itemCode = row.getItemCode();
+    private void deleteItemData(String itemCode){
 
         try{
             boolean isDelete = itemModel.deleteItem(itemCode);
@@ -167,7 +174,15 @@ public class ManageItemFormController implements Initializable {
         }
     }
     public void clickNewItemBtnOnActon(ActionEvent actionEvent) throws IOException {
-        duplicate.popUpWindow("/view/addNewItem.fxml");
+        Parent rootNode = FXMLLoader.load(getClass().getResource("/view/addNewItem.fxml"));
+        Scene scene = new Scene(rootNode);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.showAndWait();
+        loadAllItem();
+        itemtable.refresh();
     }
 
     public void searchBarItem(){ //item Search logic

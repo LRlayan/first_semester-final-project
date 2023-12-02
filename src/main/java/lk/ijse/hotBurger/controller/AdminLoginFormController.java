@@ -4,12 +4,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.hotBurger.dto.UserDto;
 import lk.ijse.hotBurger.model.UserModel;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -19,18 +21,24 @@ import java.util.ResourceBundle;
 
 public class AdminLoginFormController {
     public AnchorPane loginAnchorPane;
+
     public javafx.scene.control.Label lblPassword;
+
     public javafx.scene.control.Label lblUsername;
+
     @FXML
     private TextField txtUsername;
+
     @FXML
-    private TextField txtPassword;
+    private PasswordField txtPasswordField;
+
     UserDto userDto = new UserDto();
+
     DuplicateMethodController navigate = new DuplicateMethodController();
 
     public void ClickOnLogingBtn(ActionEvent actionEvent) throws IOException, SQLException {
         String username = txtUsername.getText();
-        String password = txtPassword.getText();
+        String password = txtPasswordField.getText();
         ArrayList<UserDto> allUsers = UserModel.getAllUsers();
 
         for (int i = 0; i < allUsers.size(); i++) {
@@ -52,7 +60,11 @@ public class AdminLoginFormController {
 
     public void OnEnterPassword(KeyEvent keyEvent) throws SQLException {
         ArrayList<UserDto> allUsers = UserModel.getAllUsers();
-        String password = txtPassword.getText();
+        String password = txtPasswordField.getText();
         navigate.incorrectCredential(allUsers , password , "Incorrect Password" , lblPassword);
+    }
+
+    public void forgerPasswordOnAction(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+        navigate.changeOnlyAnchorPane("/view/forgetPassword.fxml",loginAnchorPane);
     }
 }

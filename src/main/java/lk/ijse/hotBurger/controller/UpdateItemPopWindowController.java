@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class UpdateItemPopWindowController implements Initializable {
+    public static int id;
     public static String categoryId;
     public static String itemCode;
     public static String name;
@@ -53,17 +54,18 @@ public class UpdateItemPopWindowController implements Initializable {
 
     public void updateOnAction(ActionEvent actionEvent) {
 
-            String  categoryId = txtCategoryId.getText();
+            int itemId = id;
+            String categoryId = txtCategoryId.getText();
             String itemCode = txtItemCode.getText();
             String itemName = txtItemName.getText();
             double unitPrice = Double.parseDouble(txtUnitPrice.getText());
             double unitCost = Double.parseDouble(txtUnitCost.getText());
 
-            var itemDto = new ItemDto(categoryId,itemCode,itemName,unitPrice,unitCost);
+            var itemDto = new ItemDto(categoryId,itemCode,itemName,unitPrice,unitCost, itemId);
             try{
                  boolean isUpdate = itemModel.updateItem(itemDto);
                  if (isUpdate){
-                     new Alert(Alert.AlertType.CONFIRMATION,"Update Successfully").show();
+                     new Alert(Alert.AlertType.INFORMATION,"Update Successfully").show();
                  }
             }catch (SQLException e){
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();

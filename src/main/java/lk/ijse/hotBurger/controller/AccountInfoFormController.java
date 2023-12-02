@@ -61,11 +61,7 @@ public class AccountInfoFormController {
     @FXML
     void btnChangeUsernameOnAction(ActionEvent event) throws SQLException {
 
-
-        List<UserDto> userDtoList = UserModel.getAllUsers();
-
         String confirmUsername = txtConfirmUsername.getText();
-        String oldUsername = txtUsername.getText();
 
         var user = new UserDto(confirmUsername);
 

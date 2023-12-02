@@ -133,15 +133,15 @@ public class CashierWorkFormController implements Initializable {
 
     @FXML
     void reportsOnAction(ActionEvent event) throws JRException, SQLException {
-     InputStream reportsAsStream = getClass().getResourceAsStream("/reports/hotBurgers.jrxml");
-     JasperDesign load = JRXmlLoader.load(reportsAsStream);
-     JasperReport jasperReport1 = JasperCompileManager.compileReport(load);
-     JasperFillManager.fillReport(jasperReport1,
+        InputStream reportsAsStream = getClass().getResourceAsStream("/reports/hotBurgers.jrxml");
+        JasperDesign load = JRXmlLoader.load(reportsAsStream);
+        JasperReport jasperReport1 = JasperCompileManager.compileReport(load);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport1,
                 null,
                 DbConnection.getInstance().getConnection()
 
         );
-        JasperViewer.viewReport(new JasperPrint() ,false);
+        JasperViewer.viewReport(jasperPrint, false);
     }
 
     @FXML
