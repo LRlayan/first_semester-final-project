@@ -7,6 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import lk.ijse.hotBurger.dto.CustomerDto;
 
+import java.util.regex.Pattern;
+
 public class DineInCustomerFormController {
 
     @FXML
@@ -32,6 +34,7 @@ public class DineInCustomerFormController {
     }
 
     public void DineInConfirmOnAction(ActionEvent actionEvent) {
+        String mobileNo = (dineInCusMobileNo.getText());
 
         customerDto.setId(0);
         customerDto.setFName(dineInCusFName.getText());
@@ -51,3 +54,13 @@ public class DineInCustomerFormController {
         dineInCusMobileNo.setText("");
     }
 }
+
+
+
+
+
+
+
+/*
+  boolean matches = Pattern.matches("^(?:\\\\+94|0)([1-9])\\\\d{8}$",mobileNo);
+ */

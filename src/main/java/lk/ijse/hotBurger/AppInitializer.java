@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 public class AppInitializer extends Application {
 
-   public static final String CURRENCY = "Rs";
     @Override
     public void start(Stage primaryStage) throws Exception {
        Parent rootNode =  FXMLLoader.load(getClass().getResource("/view/adminLogin_form.fxml"));

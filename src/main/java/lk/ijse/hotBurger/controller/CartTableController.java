@@ -207,12 +207,12 @@ public class CartTableController implements Initializable {
                 });
                 billGenerate(order.getId());
                 clearOrder();
-                //new Alert(Alert.AlertType.INFORMATION, "Order created successfully!").show();
             }
         }
     }
 
     private void minusButtonToTable() { //add column and change qty button
+
         TableColumn<OrderDetailsDto, Void> colBtn = new TableColumn("Qty(-)  ");
         Callback<TableColumn<OrderDetailsDto, Void>, TableCell<OrderDetailsDto, Void>> cellFactory = new Callback<>() {
             @Override

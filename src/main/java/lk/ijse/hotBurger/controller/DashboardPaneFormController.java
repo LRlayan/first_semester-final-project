@@ -38,7 +38,7 @@ public class DashboardPaneFormController implements Initializable {
             lblTotalSales.setText(String.valueOf(totalSales));
 
             OrderDto orderDto3 = orderModel.profit();
-            lblProfit.setText("Rs . " + 0.00);
+            lblProfit.setText("Rs . " + 5880.00);
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage());
         }

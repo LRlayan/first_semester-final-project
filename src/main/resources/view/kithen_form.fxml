@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hotBurger.controller.KithenFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff7a00" height="64.0" layoutX="-1.0" layoutY="-7.0" stroke="#ff7a00" strokeType="INSIDE" width="901.0" />
+      <Label layoutX="414.0" layoutY="4.0" text="Kitchen">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="74.0" text="Order View">
+         <font>
+            <Font name="Arial Bold" size="25.0" />
+         </font>
+      </Label>
+      <Line endX="-51.66667175292969" endY="410.66668701171875" layoutX="333.0" layoutY="165.0" startX="-51.666656494140625" startY="-88.0" stroke="#909090" />
+      <ScrollPane layoutX="16.0" layoutY="129.0" prefHeight="444.0" prefWidth="254.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="437.0" prefWidth="252.0">
+               <children>
+                  <AnchorPane layoutX="8.0" layoutY="126.0" prefHeight="108.0" prefWidth="237.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15;" />
+                  <AnchorPane layoutX="8.0" layoutY="10.0" prefHeight="108.0" prefWidth="237.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 15;">
+                     <children>
+                        <Label layoutX="35.0" layoutY="26.0" text="An order has arrived">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton buttonType="RAISED" layoutX="91.0" layoutY="62.0" style="-fx-background-color: #ff7a00;" text="Confirm" textFill="WHITE" />
+                        <Label layoutX="35.0" layoutY="143.0" text="An order has arrived">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Label>
+                        <JFXButton buttonType="RAISED" layoutX="91.0" layoutY="179.0" style="-fx-background-color: FFFFFF; -fx-border-color: #ff7a00;" text="Confirm" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Label layoutX="307.0" layoutY="90.0" text="Order No : 1">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="306.0" layoutY="128.0" prefHeight="450.0" prefWidth="571.0" style="-fx-background-color: FFFFFF; -fx-background-radius: 10;">
+         <children>
+            <Label layoutX="23.0" layoutY="23.0" text="Order Details">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="60.0" text="Whopper">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="84.0" text="Double Wjopper">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="108.0" text="BBQ Sauce">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="132.0" text="Sweet &amp; Sour Sauce">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="156.0" text="Mayonnaise">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="180.0" text="Family Bundle">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="293.0" text="Remove Ingrediants">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="303.0" layoutY="293.0" text="Toppings">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="204.0" text="King Box">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="330.0" text="Add all Ingredient">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="351.0" layoutY="330.0" text="Cheese">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="60.0" text="2">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="85.0" text="1">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="110.0" text="1">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="133.0" text="1">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="156.0" text="1">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="178.0" text="1">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="254.0" layoutY="201.0" text="1">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="472.0" layoutY="406.0" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #ff7a00;" text="Finish" textFill="WHITE" />
+            <JFXButton buttonType="RAISED" layoutX="472.0" layoutY="216.0" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: #ff7a00;" text="Proccesing" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="759.0" layoutY="90.0" text="Delivery Order">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Line endX="-17.333343505859375" endY="215.33334350585938" layoutX="343.0" layoutY="175.0" startX="512.0" startY="215.33334350585938" stroke="#909090" />
+   </children>
+</AnchorPane>

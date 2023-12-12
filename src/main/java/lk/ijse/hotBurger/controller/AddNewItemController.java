@@ -27,11 +27,15 @@ public class AddNewItemController {
 
     @FXML
     private TextField txtUnitPrice;
+
     @FXML
     private JFXButton btnCreate;
 
-    DuplicateMethodController duplicate = new DuplicateMethodController();
 
+    @FXML
+    private JFXButton closeButton;
+
+    DuplicateMethodController duplicate = new DuplicateMethodController();
     public void createBtnOnAction(ActionEvent actionEvent) {
         String code = txtItemCode.getText();
         String name = txtItemName.getText();
@@ -47,8 +51,8 @@ public class AddNewItemController {
             try{
                 boolean isAdd = AddNewItemModel.addNewItem(newItemDto);
                 if (isAdd){
-                    new Alert(Alert.AlertType.CONFIRMATION,"Added Successfully!").show();
                     duplicate.clickButtonCloseWindow(btnCreate);
+                    new Alert(Alert.AlertType.CONFIRMATION,"Added Successfully!").show();
                 }
             }catch (SQLException e){
                 new Alert(Alert.AlertType.ERROR,e.getMessage()).show();
@@ -56,7 +60,10 @@ public class AddNewItemController {
         }else {
             new Alert(Alert.AlertType.ERROR,"Name Field cannot be null").show();
         }
+    }
 
-
+    @FXML
+    void btnCloseOnAction(ActionEvent event) {
+        duplicate.clickButtonCloseWindow(closeButton);
     }
 }

@@ -19,7 +19,9 @@ import java.util.List;
 public class AccountInfoFormController {
 
     public static int userId;
+
     public Label redLblPassword;
+
     @FXML
     private TextField txtConfirmUsername;
 

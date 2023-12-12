@@ -58,7 +58,8 @@ public class AdminLoginFormController {
         navigate.incorrectCredential(allUsers , username , "Incorrect Username" , lblUsername);
     }
 
-    public void OnEnterPassword(KeyEvent keyEvent) throws SQLException {
+    @FXML
+    void OnEnterPassword(KeyEvent event) throws SQLException {
         ArrayList<UserDto> allUsers = UserModel.getAllUsers();
         String password = txtPasswordField.getText();
         navigate.incorrectCredential(allUsers , password , "Incorrect Password" , lblPassword);
