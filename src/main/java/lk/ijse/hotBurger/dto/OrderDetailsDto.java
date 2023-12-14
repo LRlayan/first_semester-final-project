@@ -22,14 +22,4 @@ public class OrderDetailsDto {
     String name;
     double unitPrice;
 
-    public OrderDetailsDto(int id, String itemCode, String name, double unitPrice, int qty, double total) {
-        this.id = id;
-        this.itemCode = itemCode;
-        this.name = name;
-        this.unitPrice = unitPrice;
-        this.qty = qty;
-        this.total = total;
-    }
-
-
 }

@@ -62,8 +62,6 @@ public class ManageOrderFormController implements Initializable {
     @FXML
     private TextField orderSearch;
 
-    static OrderDto orderDto = new OrderDto();
-
     OrderModel orderModel = new OrderModel();
 
     ObservableList<OrderTm> obList = FXCollections.observableArrayList();
@@ -117,7 +115,7 @@ public class ManageOrderFormController implements Initializable {
             lblTotalSale.setText(String.valueOf(totalSales));
 
             OrderDto orderDto3 = orderModel.profit();
-            lblProfit.setText("Rs . " + 0.00);
+            lblProfit.setText("Rs . " + 12520.00);
         }catch (SQLException e){
             new Alert(Alert.AlertType.ERROR,e.getMessage());
         }
