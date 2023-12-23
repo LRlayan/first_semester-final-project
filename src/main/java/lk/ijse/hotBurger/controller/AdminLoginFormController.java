@@ -2,8 +2,6 @@ package lk.ijse.hotBurger.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
@@ -11,12 +9,9 @@ import javafx.scene.layout.AnchorPane;
 import lk.ijse.hotBurger.dto.UserDto;
 import lk.ijse.hotBurger.model.UserModel;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 
 public class AdminLoginFormController {

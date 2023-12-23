@@ -81,6 +81,7 @@ public class ForgerPasswordChangePasswordController {
     }
 
     public void signInOnAction(MouseEvent mouseEvent) throws IOException {
-        navigate.changeOnlyAnchorPane("/view/adminLogin_form.fxml",changePasswordAnchorpane);
+        navigate.popUpWindow("/view/adminLogin_form.fxml");
     }
 }
+
