@@ -31,5 +31,6 @@
       <TextField fx:id="txtCode" layoutX="34.0" layoutY="170.0" prefHeight="32.0" prefWidth="293.0" promptText="enter code" />
       <JFXButton buttonType="RAISED" layoutX="250.0" layoutY="254.0" onAction="#codeVerifyOnAction" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: FF8328; -fx-background-radius: 10;" text="Verify" textFill="WHITE" />
       <Label fx:id="lblCode" layoutX="35.0" layoutY="207.0" prefHeight="17.0" prefWidth="221.0" textFill="RED" />
+      <JFXButton buttonType="RAISED" layoutX="154.0" layoutY="254.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: #a1bbe3; -fx-background-radius: 10;" text="Back" />
    </children>
 </AnchorPane>

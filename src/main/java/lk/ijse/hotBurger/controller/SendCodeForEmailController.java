@@ -19,7 +19,6 @@ public class SendCodeForEmailController {
 
     @FXML
     private Label lblCode;
-
     @FXML
     private Label lblSignIn;
 
@@ -35,5 +34,11 @@ public class SendCodeForEmailController {
         } else {
             lblCode.setText("Invalid Code!");
         }
+    }
+
+
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        navigate.changeOnlyAnchorPane("/view/initializeForgetPassword.fxml", codeAnchorpane);
     }
 }

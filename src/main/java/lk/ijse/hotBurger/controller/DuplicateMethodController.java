@@ -19,6 +19,7 @@ public class DuplicateMethodController {
         AnchorPane anchorPane = FXMLLoader.load(getClass().getResource(fxml));
         Scene scene = new Scene(anchorPane);
         Stage stage = (Stage) loginAnchorPane.getScene().getWindow();
+        //stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.centerOnScreen();
     }

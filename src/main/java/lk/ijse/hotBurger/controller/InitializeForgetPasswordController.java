@@ -32,13 +32,17 @@ public class InitializeForgetPasswordController {
     private Label lblSignIn;
 
     @FXML
+    private JFXButton btnSignIn;
+
+    @FXML
     private TextField email;
 
     DuplicateMethodController navigate = new DuplicateMethodController();
 
-    public void signInOnAction(MouseEvent mouseEvent) throws IOException {
+    @FXML
+    void signInOnAction(ActionEvent event) throws IOException {
         navigate.popUpWindow("/view/adminLogin_form.fxml");
-
+        navigate.clickButtonCloseWindow(btnSignIn);
     }
 
     @FXML

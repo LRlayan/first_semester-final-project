@@ -1,5 +1,6 @@
 package lk.ijse.hotBurger.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -26,6 +27,9 @@ public class ForgerPasswordChangePasswordController {
 
     @FXML
     private Label lblConfirmPassword;
+
+    @FXML
+    private JFXButton btnSignIn;
 
     @FXML
     private AnchorPane changePasswordAnchorpane;
@@ -82,6 +86,7 @@ public class ForgerPasswordChangePasswordController {
 
     public void signInOnAction(MouseEvent mouseEvent) throws IOException {
         navigate.popUpWindow("/view/adminLogin_form.fxml");
+        navigate.clickButtonCloseWindow(btnSignIn);
     }
 }
 
