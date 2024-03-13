@@ -27,21 +27,6 @@ public class UserModel {
         return arrayList;
     }
 
-//    public static ArrayList<UserDto> getUsernames() throws SQLException {
-//        ArrayList<UserDto> usernames = new ArrayList<>();
-//        Connection connection = DbConnection.getInstance().getConnection();
-//
-//        String sql = "SELECT username FROM user";
-//        PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//
-//        ResultSet resultSet = preparedStatement.executeQuery();
-//        while (resultSet.next()){
-//            UserDto userDto = new UserDto(resultSet.getString(1));
-//            usernames.add(userDto);
-//        }
-//        return usernames;
-//    }
-
     public boolean updateUser(String confirmUsername,int userId ) throws SQLException {
         Connection connection = DbConnection.getInstance().getConnection();
         String sql = "UPDATE user SET username = ? WHERE id = ?";

@@ -27,7 +27,6 @@ public class ForgerPasswordChangePasswordController {
 
     @FXML
     private Label lblConfirmPassword;
-
     @FXML
     private JFXButton btnSignIn;
 

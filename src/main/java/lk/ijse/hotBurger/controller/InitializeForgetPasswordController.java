@@ -62,7 +62,7 @@ public class InitializeForgetPasswordController {
         properties.put("mail.smtp.port","587");
 
         String myAccountEmail = "rameshlayan4@gmail.com";
-        String password = "lwuq wmou mvoc iywb";
+        String password = "qnlt ncnd npse wecl";
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override

@@ -17,12 +17,7 @@ import java.util.ResourceBundle;
 
 public class BurgerCategoryFormController implements Initializable {
     public static AnchorPane pane;
-
     private static BurgerCategoryFormController instance;
-
-    public static BurgerCategoryFormController getInstance() {
-        return instance;
-    }
     public GridPane gridpane;
 
     @FXML
@@ -32,6 +27,10 @@ public class BurgerCategoryFormController implements Initializable {
     protected AnchorPane toppingsAnchorpane;
 
     DuplicateMethodController duplicate = new DuplicateMethodController();
+
+    public static BurgerCategoryFormController getInstance() {
+        return instance;
+    }
 
     public void initializeLoadGridPane(int categoryId){
         List<ItemDto> itemDtos = ItemModel.loadAllItemCategoryVise(categoryId);
